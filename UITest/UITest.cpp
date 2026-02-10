@@ -14,7 +14,7 @@
 
 #include "..\DirectUI\DirectUI.h"
 
-#include <detours/detours.h>
+//#include <detours/detours.h>
 
 #pragma comment(lib,"dui70.lib")
 #pragma comment(lib, "comctl32.lib")
@@ -141,20 +141,20 @@ HRESULT HookedRegister(CClassFactory *self, IClassInfo*info) {
 	return RealClassFactoryRegister(self, info);
 }
 
-inline void HookClassFactoryRegister() {
-	RealClassFactoryRegister = (decltype(RealClassFactoryRegister))(
-		(UINT64)GetModuleHandle(L"dui70.dll") +
-		0x37634
-	);
-
-	DetourTransactionBegin();
-	DetourUpdateThread(GetCurrentThread());
-
-	auto pfMine = &HookedRegister;
-	DetourAttach(&(PVOID&)RealClassFactoryRegister,
-                 *(PBYTE*)&pfMine);
-	DetourTransactionCommit();
-}
+//inline void HookClassFactoryRegister() {
+//	RealClassFactoryRegister = (decltype(RealClassFactoryRegister))(
+//		(UINT64)GetModuleHandle(L"dui70.dll") +
+//		0x37634
+//	);
+//
+//	DetourTransactionBegin();
+//	DetourUpdateThread(GetCurrentThread());
+//
+//	auto pfMine = &HookedRegister;
+//	DetourAttach(&(PVOID&)RealClassFactoryRegister,
+//                 *(PBYTE*)&pfMine);
+//	DetourTransactionCommit();
+//}
 
 int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
