@@ -109,8 +109,7 @@ namespace DirectUI
 	long DuiAccessible::GetAccNameFromContent(unsigned short **) { return 0 ; }
 	long DuiAccessible::GetDispatchFromElement(Element *, IDispatch **) { return 0 ; }
 	RefcountBase::RefcountBase() {}
-	RefcountBase::~RefcountBase() {
-	}
+	RefcountBase::~RefcountBase() {}
 	long RefcountBase::AddRef() { return 0 ; }
 	long RefcountBase::Release() { return 0 ; }
 	Button::Button(const Button &) {}
@@ -946,8 +945,7 @@ namespace DirectUI
 	bool WINAPI ClassInfoBase::ClassExist(IClassInfo **, const PropertyInfo * const *, unsigned int, IClassInfo *, HINSTANCE, UCString, bool) { return false ; }
 	long ClassInfoBase::Initialize(HINSTANCE, UCString, bool, const PropertyInfo * const *, unsigned int) { return 0 ; }
 	long ClassInfoBase::Register() { return 0 ; }
-	BaseScrollBar::BaseScrollBar(BaseScrollBar const &) {
-	}
+	BaseScrollBar::BaseScrollBar(BaseScrollBar const &) {}
 	BaseScrollBar::BaseScrollBar() {}
 	BaseScrollBar & BaseScrollBar::operator=(BaseScrollBar const &){ return *this ; }
 	void BaseScrollBar::LineUp(unsigned int) {}
@@ -2325,20 +2323,15 @@ namespace DirectUI
 	//	RECT const*,
 	//	RECT const*,
 	//	RECT*,
-	//	RECT*) {
-	//}
-	////void ModernProgressRing::OnHosted(Element*) {
-	////}
-	////void ModernProgressRing::OnUnHosted(Element*) {
-	////}
-	////void ModernProgressRing::OnDestroy(void) {
-	////}
+	//	RECT*) {//}
+	////void ModernProgressRing::OnHosted(Element*) {////}
+	////void ModernProgressRing::OnUnHosted(Element*) {////}
+	////void ModernProgressRing::OnDestroy(void) {////}
 	//void ModernProgressRing::OnPropertyChanged(
 	//	PropertyInfo const*,
 	//	int,
 	//	Value*,
-	//	Value*) {
-	//}
+	//	Value*) {//}
 	template<class X, class Y, int i>
 	inline DirectUI::PatternProvider<X, Y, i>::PatternProvider() {}
 	template<class X, class Y, int i>
@@ -2445,8 +2438,7 @@ namespace DirectUI
 	IClassInfo * RefPointElement::GetClassInfoW(void) { return nullptr ; }
 	void RefPointElement::OnPropertyChanged(PropertyInfo const *, int, Value *, Value *) {}
 	IClassInfo * RefPointElement::s_pClassInfo;
-	RepeatButton::RepeatButton(RepeatButton const &) {
-	}
+	RepeatButton::RepeatButton(RepeatButton const &) {}
 	RepeatButton::RepeatButton(void) {}
 	RepeatButton::~RepeatButton(void) {}
 	RepeatButton & RepeatButton::operator=(RepeatButton const &){ return *this ; }
@@ -2460,8 +2452,7 @@ namespace DirectUI
 	void RepeatButton::OnInput(InputEvent *) {}
 	void RepeatButton::_RepeatButtonActionCallback(GMA_ACTIONINFO *) {}
 	IClassInfo * RepeatButton::s_pClassInfo;
-	Repeater::Repeater(Repeater const &) {
-	}
+	Repeater::Repeater(Repeater const &) {}
 	Repeater::Repeater(void) {}
 	Repeater::~Repeater(void) {}
 	Repeater & Repeater::operator=(Repeater const &){ return *this ; }
@@ -2474,8 +2465,7 @@ namespace DirectUI
 	IClassInfo * Repeater::GetClassInfoW(void) { return nullptr ; }
 	long Repeater::BuildElement(void) { return 0 ; }
 	IClassInfo * Repeater::s_pClassInfo;
-	ScrollProvider::ScrollProvider(void) {
-	}
+	ScrollProvider::ScrollProvider(void) {}
 	ScrollProvider::~ScrollProvider(void) {}
 	unsigned long ScrollProvider::AddRef(void) { return 0 ; }
 	ProviderProxyCall ScrollProvider::GetProxyCreator(void) { return ProviderProxyCall() ; }
@@ -2489,8 +2479,7 @@ namespace DirectUI
 	long ScrollProvider::get_VerticalScrollPercent(double *) { return 0 ; }
 	long ScrollProvider::get_VerticalViewSize(double *) { return 0 ; }
 	long ScrollProvider::get_VerticallyScrollable(int *) { return 0 ; }
-	ScrollProxy::ScrollProxy(ScrollProxy const &) {
-	}
+	ScrollProxy::ScrollProxy(ScrollProxy const &) {}
 	ScrollProxy::ScrollProxy(void) {}
 	ScrollProxy & ScrollProxy::operator=(ScrollProxy const &){ return *this ; }
 	ScrollProxy * ScrollProxy::Create(Element *) { return nullptr ; }
@@ -2509,8 +2498,7 @@ namespace DirectUI
 	long ScrollProxy::ScrollToVerticalPosition(int, bool) { return 0 ; }
 	long ScrollProxy::SetPercent(BaseScrollBar *, double) { return 0 ; }
 	long ScrollProxy::SetScrollPercent(double, double) { return 0 ; }
-	ScrollBar::ScrollBar(ScrollBar const &) {
-	}
+	ScrollBar::ScrollBar(ScrollBar const &) {}
 	ScrollBar::ScrollBar(void) {}
 	ScrollBar::~ScrollBar(void) {}
 	ScrollBar & ScrollBar::operator=(ScrollBar const &){ return *this ; }
@@ -2553,30 +2541,26 @@ namespace DirectUI
 	SIZE ScrollBar::_SelfLayoutUpdateDesiredSize(int, int, Surface *) { return SIZE() ; }
 	long ScrollBar::CreateButtons(void) { return 0 ; }
 	IClassInfo * ScrollBar::s_pClassInfo;
-	ScrollBarRangeValueProxy::ScrollBarRangeValueProxy(ScrollBarRangeValueProxy const &) {
-	}
+	ScrollBarRangeValueProxy::ScrollBarRangeValueProxy(ScrollBarRangeValueProxy const &) {}
 	ScrollBarRangeValueProxy::ScrollBarRangeValueProxy(void) {}
 	ScrollBarRangeValueProxy & ScrollBarRangeValueProxy::operator=(ScrollBarRangeValueProxy const &){ return *this ; }
 	long ScrollBarRangeValueProxy::DoMethod(int, char *) { return 0 ; }
 	void ScrollBarRangeValueProxy::Init(Element *) {}
-	ScrollItemProvider::ScrollItemProvider(void) {
-	}
+	ScrollItemProvider::ScrollItemProvider(void) {}
 	ScrollItemProvider::~ScrollItemProvider(void) {}
 	unsigned long ScrollItemProvider::AddRef(void) { return 0 ; }
 	ProviderProxyCall ScrollItemProvider::GetProxyCreator(void) { return ProviderProxyCall() ; }
 	long ScrollItemProvider::QueryInterface(_GUID const &, void **) { return 0 ; }
 	unsigned long ScrollItemProvider::Release(void) { return 0 ; }
 	long ScrollItemProvider::ScrollIntoView(void) { return 0 ; }
-	ScrollItemProxy::ScrollItemProxy(ScrollItemProxy const &) {
-	}
+	ScrollItemProxy::ScrollItemProxy(ScrollItemProxy const &) {}
 	ScrollItemProxy::ScrollItemProxy(void) {}
 	ScrollItemProxy & ScrollItemProxy::operator=(ScrollItemProxy const &){ return *this ; }
 	ScrollItemProxy * ScrollItemProxy::Create(Element *) { return nullptr ; }
 	bool ScrollItemProxy::IsPatternSupported(Element *) { return false ; }
 	long ScrollItemProxy::DoMethod(int, char *) { return 0 ; }
 	void ScrollItemProxy::Init(Element *) {}
-	ScrollViewer::ScrollViewer(ScrollViewer const &) {
-	}
+	ScrollViewer::ScrollViewer(ScrollViewer const &) {}
 	ScrollViewer::ScrollViewer(void) {}
 	ScrollViewer::~ScrollViewer(void) {}
 	ScrollViewer & ScrollViewer::operator=(ScrollViewer const &){ return *this ; }
@@ -2592,8 +2576,7 @@ namespace DirectUI
 	BaseScrollBar * ScrollViewer::GetHScroll(void) { return nullptr ; }
 	BaseScrollBar * ScrollViewer::GetVScroll(void) { return nullptr ; }
 	IClassInfo * ScrollViewer::s_pClassInfo;
-	SelectionProvider::SelectionProvider(void) {
-	}
+	SelectionProvider::SelectionProvider(void) {}
 	SelectionProvider::~SelectionProvider(void) {}
 	unsigned long SelectionProvider::AddRef(void) { return 0 ; }
 	ProviderProxyCall SelectionProvider::GetProxyCreator(void) { return ProviderProxyCall() ; }
@@ -2602,16 +2585,14 @@ namespace DirectUI
 	unsigned long SelectionProvider::Release(void) { return 0 ; }
 	long SelectionProvider::get_CanSelectMultiple(int *) { return 0 ; }
 	long SelectionProvider::get_IsSelectionRequired(int *) { return 0 ; }
-	SelectionProxy::SelectionProxy(void) {
-	}
+	SelectionProxy::SelectionProxy(void) {}
 	SelectionProxy::SelectionProxy(SelectionProxy const &) {}
 	SelectionProxy & SelectionProxy::operator=(SelectionProxy const &){ return *this ; }
 	SelectionProxy * SelectionProxy::Create(Element *) { return nullptr ; }
 	bool SelectionProxy::IsPatternSupported(Element *) { return false ; }
 	long SelectionProxy::DoMethod(int, char *) { return 0 ; }
 	void SelectionProxy::Init(Element *) {}
-	SelectionItemProvider::SelectionItemProvider(void) {
-	}
+	SelectionItemProvider::SelectionItemProvider(void) {}
 	SelectionItemProvider::~SelectionItemProvider(void) {}
 	unsigned long SelectionItemProvider::AddRef(void) { return 0 ; }
 	long SelectionItemProvider::AddToSelection(void) { return 0 ; }
@@ -2622,16 +2603,14 @@ namespace DirectUI
 	long SelectionItemProvider::Select(void) { return 0 ; }
 	long SelectionItemProvider::get_IsSelected(int *) { return 0 ; }
 	long SelectionItemProvider::get_SelectionContainer(IRawElementProviderSimple **) { return 0 ; }
-	SelectionItemProxy::SelectionItemProxy(void) {
-	}
+	SelectionItemProxy::SelectionItemProxy(void) {}
 	SelectionItemProxy::SelectionItemProxy(SelectionItemProxy const &) {}
 	SelectionItemProxy & SelectionItemProxy::operator=(SelectionItemProxy const &){ return *this ; }
 	SelectionItemProxy * SelectionItemProxy::Create(Element *) { return nullptr ; }
 	bool SelectionItemProxy::IsPatternSupported(Element *) { return false ; }
 	long SelectionItemProxy::DoMethod(int, char *) { return 0 ; }
 	void SelectionItemProxy::Init(Element *) {}
-	Selector::Selector(Selector const &) {
-	}
+	Selector::Selector(Selector const &) {}
 	Selector::Selector(void) {}
 	Selector::~Selector(void) {}
 	Selector & Selector::operator=(Selector const &){ return *this ; }
@@ -2651,8 +2630,7 @@ namespace DirectUI
 	void Selector::OnPropertyChanged(PropertyInfo const *, int, Value *, Value *) {}
 	long Selector::SetSelection(Element *) { return 0 ; }
 	IClassInfo * Selector::s_pClassInfo;
-	SelectorNoDefault::SelectorNoDefault(SelectorNoDefault const &) {
-	}
+	SelectorNoDefault::SelectorNoDefault(SelectorNoDefault const &) {}
 	SelectorNoDefault::SelectorNoDefault(void) {}
 	SelectorNoDefault::~SelectorNoDefault(void) {}
 	SelectorNoDefault & SelectorNoDefault::operator=(SelectorNoDefault const &){ return *this ; }
@@ -2667,15 +2645,13 @@ namespace DirectUI
 	long SelectorNoDefault::SetSelection(Element *) { return 0 ; }
 	IClassInfo * SelectorNoDefault::s_pClassInfo;
 
-	SelectorSelectionProxy::SelectorSelectionProxy(SelectorSelectionProxy const &) {
-	}
+	SelectorSelectionProxy::SelectorSelectionProxy(SelectorSelectionProxy const &) {}
 	SelectorSelectionProxy::SelectorSelectionProxy(void) {}
 	SelectorSelectionProxy & SelectorSelectionProxy::operator=(SelectorSelectionProxy const &){ return *this ; }
 	long SelectorSelectionProxy::DoMethod(int, char *) { return 0 ; }
 	void SelectorSelectionProxy::Init(Element *) {}
 	long SelectorSelectionProxy::GetIsSelectionRequired(int *) { return 0 ; }
-	SelectorSelectionItemProxy::SelectorSelectionItemProxy(SelectorSelectionItemProxy const &) {
-	}
+	SelectorSelectionItemProxy::SelectorSelectionItemProxy(SelectorSelectionItemProxy const &) {}
 	SelectorSelectionItemProxy::SelectorSelectionItemProxy(void) {}
 	SelectorSelectionItemProxy & SelectorSelectionItemProxy::operator=(SelectorSelectionItemProxy const &){ return *this ; }
 	long SelectorSelectionItemProxy::DoMethod(int, char *) { return 0 ; }
@@ -2683,8 +2659,7 @@ namespace DirectUI
 	long SelectorSelectionItemProxy::AddToSelection(void) { return 0 ; }
 	long SelectorSelectionItemProxy::GetSelectionContainer(IRawElementProviderSimple **) { return 0 ; }
 	long SelectorSelectionItemProxy::Select(void) { return 0 ; }
-	StyledScrollViewer::StyledScrollViewer(StyledScrollViewer const &) {
-	}
+	StyledScrollViewer::StyledScrollViewer(StyledScrollViewer const &) {}
 	StyledScrollViewer::StyledScrollViewer(void) {}
 	StyledScrollViewer::~StyledScrollViewer(void) {}
 	StyledScrollViewer & StyledScrollViewer::operator=(StyledScrollViewer const &){ return *this ; }
@@ -2699,8 +2674,7 @@ namespace DirectUI
 	BaseScrollBar * StyledScrollViewer::GetHScroll(void) { return nullptr ; }
 	BaseScrollBar * StyledScrollViewer::GetVScroll(void) { return nullptr ; }
 	IClassInfo * StyledScrollViewer::s_pClassInfo;
-	TableProvider::TableProvider(void) {
-	}
+	TableProvider::TableProvider(void) {}
 	TableProvider::~TableProvider(void) {}
 	unsigned long TableProvider::AddRef(void) { return 0 ; }
 	long TableProvider::GetColumnHeaders(SAFEARRAY **) { return 0 ; }
@@ -2710,15 +2684,13 @@ namespace DirectUI
 	unsigned long TableProvider::Release(void) { return 0 ; }
 	long TableProvider::get_RowOrColumnMajor(RowOrColumnMajor *) { return 0 ; }
 	TableProxy::TableProxy(TableProxy const &) {}
-	TableProxy::TableProxy() {
-	}
+	TableProxy::TableProxy() {}
 	TableProxy & TableProxy::operator=(TableProxy const &){ return *this ; }
 	TableProxy * TableProxy::Create(Element *) { return nullptr ; }
 	bool TableProxy::IsPatternSupported(Element *) { return false ; }
 	long TableProxy::DoMethod(int, char *) { return 0 ; }
 	void TableProxy::Init(Element *) {}
-	TableItemProvider::TableItemProvider() {
-	}
+	TableItemProvider::TableItemProvider() {}
 	TableItemProvider::~TableItemProvider(void) {}
 	unsigned long TableItemProvider::AddRef(void) { return 0 ; }
 	long TableItemProvider::GetColumnHeaderItems(SAFEARRAY **) { return 0 ; }
@@ -2727,16 +2699,14 @@ namespace DirectUI
 	long TableItemProvider::QueryInterface(GUID const &, void **) { return 0 ; }
 	unsigned long TableItemProvider::Release(void) { return 0 ; }
 	TableItemProxy::TableItemProxy(TableItemProxy const &) {}
-	TableItemProxy::TableItemProxy() {
-	}
+	TableItemProxy::TableItemProxy() {}
 	TableItemProxy & TableItemProxy::operator=(TableItemProxy const &){ return *this ; }
 	TableItemProxy * TableItemProxy::Create(Element *) { return nullptr ; }
 	bool TableItemProxy::IsPatternSupported(Element *) { return false ; }
 	long TableItemProxy::DoMethod(int, char *) { return 0 ; }
 	void TableItemProxy::Init(Element *) {}
 	TaskPage::TaskPage(TaskPage const &) {}
-	TaskPage::TaskPage() {
-	}
+	TaskPage::TaskPage() {}
 	TaskPage::~TaskPage(void) {}
 	TaskPage & TaskPage::operator=(TaskPage const &){ return *this ; }
 	TaskPage::operator struct _PSP*(void){ return NULL ; }
@@ -2774,8 +2744,7 @@ namespace DirectUI
 	long TaskPage::CreateParserCP(DUIXmlParser **) { return 0 ; }
 	void TaskPage::DestroyCP(void) {}
 	TextGraphic::TextGraphic(TextGraphic const &) {}
-	TextGraphic::TextGraphic() {
-	}
+	TextGraphic::TextGraphic() {}
 	TextGraphic::~TextGraphic(void) {}
 	TextGraphic & TextGraphic::operator=(TextGraphic const &){ return *this ; }
 	long TextGraphic::Create(Element *, unsigned long *, Element **) { return 0 ; }
@@ -2790,8 +2759,7 @@ namespace DirectUI
 	bool TextGraphic::OnPropertyChanging(PropertyInfo const *, int, Value *, Value *) { return false ; }
 	IClassInfo * TextGraphic::s_pClassInfo;
 	Thumb::Thumb(Thumb const &) {}
-	Thumb::Thumb() {
-	}
+	Thumb::Thumb() {}
 	Thumb::~Thumb(void) {}
 	Thumb & Thumb::operator=(Thumb const &){ return *this ; }
 	long Thumb::Create(unsigned int, Element *, unsigned long *, Element **) { return 0 ; }
@@ -2804,8 +2772,7 @@ namespace DirectUI
 	IClassInfo * Thumb::GetClassInfoW(void) { return nullptr ; }
 	void Thumb::OnInput(InputEvent *) {}
 	IClassInfo * Thumb::s_pClassInfo;
-	ToggleProvider::ToggleProvider() {
-	}
+	ToggleProvider::ToggleProvider() {}
 	ToggleProvider::~ToggleProvider(void) {}
 	unsigned long ToggleProvider::AddRef(void) { return 0 ; }
 	ProviderProxyCall ToggleProvider::GetProxyCreator(void) { return ProviderProxyCall() ; }
@@ -2814,8 +2781,7 @@ namespace DirectUI
 	long ToggleProvider::Toggle(void) { return 0 ; }
 	long ToggleProvider::get_ToggleState(ToggleState *) { return 0 ; }
 	ToggleProxy::ToggleProxy(ToggleProxy const &) {}
-	ToggleProxy::ToggleProxy() {
-	}
+	ToggleProxy::ToggleProxy() {}
 	ToggleProxy & ToggleProxy::operator=(ToggleProxy const &){ return *this ; }
 	ToggleProxy * ToggleProxy::Create(Element *) { return nullptr ; }
 	bool ToggleProxy::IsPatternSupported(Element *) { return false ; }
@@ -2823,8 +2789,7 @@ namespace DirectUI
 	void ToggleProxy::Init(Element *) {}
 	long ToggleProxy::GetToggleState(ToggleState *) { return 0 ; }
 	UnknownElement::UnknownElement(UnknownElement const &) {}
-	UnknownElement::UnknownElement() {
-	}
+	UnknownElement::UnknownElement() {}
 	UnknownElement::~UnknownElement(void) {}
 	UnknownElement & UnknownElement::operator=(UnknownElement const &){ return *this ; }
 	long UnknownElement::Create(unsigned int, Element *, unsigned long *, Element **) { return 0 ; }
@@ -2918,8 +2883,7 @@ namespace DirectUI
 	long ValueProvider::get_IsReadOnly(int *) { return 0 ; }
 	long ValueProvider::get_Value(unsigned short **) { return 0 ; }
 	ValueProxy::ValueProxy(ValueProxy const &) {}
-	ValueProxy::ValueProxy() {
-	}
+	ValueProxy::ValueProxy() {}
 	ValueProxy & ValueProxy::operator=(ValueProxy const &){ return *this ; }
 	ValueProxy * ValueProxy::Create(Element *) { return nullptr ; }
 	bool ValueProxy::IsPatternSupported(Element *) { return false ; }
@@ -2929,8 +2893,7 @@ namespace DirectUI
 	long ValueProxy::GetValue(unsigned short **) { return 0 ; }
 	long ValueProxy::SetValue(unsigned short const *) { return 0 ; }
 	Viewer::Viewer(Viewer const &) {}
-	Viewer::Viewer() {
-	}
+	Viewer::Viewer() {}
 	Viewer::~Viewer(void) {}
 	Viewer & Viewer::operator=(Viewer const &){ return *this ; }
 	long Viewer::Create(Element *, unsigned long *, Element **) { return 0 ; }
@@ -2962,8 +2925,7 @@ namespace DirectUI
 	bool Viewer::InternalEnsureVisible(int, int, int, int) { return false ; }
 	IClassInfo * Viewer::s_pClassInfo;
 	XBaby::XBaby(XBaby const &) {}
-	XBaby::XBaby() {
-	}
+	XBaby::XBaby() {}
 	XBaby::~XBaby(void) {}
 	XBaby & XBaby::operator=(XBaby const &){ return *this ; }
 	void XBaby::CacheParser(DUIXmlParser *) {}
@@ -2991,8 +2953,7 @@ namespace DirectUI
 	long XBaby::Initialize(IXElementCP *, XProvider *, HWND, Element *, unsigned long *) { return 0 ; }
 	IClassInfo * XBaby::s_pClassInfo;
 	XElement::XElement(XElement const &) {}
-	XElement::XElement() {
-	}
+	XElement::XElement() {}
 	XElement::~XElement(void) {}
 	XElement & XElement::operator=(XElement const &){ return *this ; }
 	long XElement::Create(unsigned int, Element *, unsigned long *, Element **) { return 0 ; }
@@ -3047,16 +3008,13 @@ namespace DirectUI
 	long XProvider::SetRegisteredDefaultButton(Element *) { return 0 ; }
 	Element * XProvider::GetRoot(void) { return nullptr ; }
 	void XProvider::SetHandleEnterKey(bool) {}
-	ElementProvider::ElementProvider() {
-	}
-	ElementProvider::~ElementProvider() {
-	}
+	ElementProvider::ElementProvider() {}
+	ElementProvider::~ElementProvider() {}
 	long WINAPI ElementProvider::Create(Element*, class InvokeHelper*, ElementProvider**out) { return 0 ; }
 	long ElementProvider::DoInvokeArgs(int, ProviderProxyCall, char*) { return 0 ; }
 	const Element* ElementProvider::GetElementKey() { return NULL ; }
 	void ElementProvider::TossElement() {}
-	void ElementProvider::TossPatternProvider(Schema::Pattern) {
-	}
+	void ElementProvider::TossPatternProvider(Schema::Pattern) {}
 
 	//IUnknown
 	unsigned long WINAPI ElementProvider::AddRef() { return 0 ; }
@@ -3101,10 +3059,8 @@ namespace DirectUI
 	long ElementProvider::Init(Element*, InvokeHelper*) { return 0 ; }
 	
 	long ElementProvider::DoInvoke(int, ...) { return 0 ; }
-	ElementProxy::ElementProxy(ElementProxy const &) {
-	}
-	ElementProxy::ElementProxy(void) {
-	}
+	ElementProxy::ElementProxy(ElementProxy const &) {}
+	ElementProxy::ElementProxy(void) {}
 	ElementProxy & ElementProxy::operator=(ElementProxy const &){ return *this ; }
 	ElementProxy * __stdcall ElementProxy::Create(Element *) { return NULL ; }
 	//1
@@ -3112,8 +3068,7 @@ namespace DirectUI
 	long ElementProxy::GetAutomationId(VARIANT *) { return 0 ; }
 	long ElementProxy::GetBoundingRect(struct UiaRect *) { return 0 ; }
 	long ElementProxy::GetContent(VARIANT *, IAccessible *) { return 0 ; }
-	void ElementProxy::GetControlType(VARIANT *, IAccessible *) {
-	}
+	void ElementProxy::GetControlType(VARIANT *, IAccessible *) {}
 	long ElementProxy::GetFragmentRoot(IRawElementProviderFragmentRoot * *) { return 0 ; }
 	long ElementProxy::GetHwnd(HWND *) { return 0 ; }
 	long ElementProxy::GetLabel(VARIANT *) { return 0 ; }
@@ -3125,22 +3080,18 @@ namespace DirectUI
 	long ElementProxy::SetString(VARIANT *, UCString(Element::*)(Value * *)){ return 0 ; }
 	int ElementProxy::_UsesUIAProxies(void) { return 0 ; }
 	//2
-	void ElementProxy::Init(Element *) {
-	}
+	void ElementProxy::Init(Element *) {}
 	ElementProviderManager & ElementProviderManager::operator=(class DirectUI::ElementProviderManager const &){ return *this ; }
 	long WINAPI ElementProviderManager::Add(ElementProvider *) { return 0 ; }
-	void __stdcall ElementProviderManager::Close() {
-	}
+	void __stdcall ElementProviderManager::Close() {}
 	ElementProvider *__stdcall ElementProviderManager::Find(Element *) { return NULL ; }
 	bool __stdcall ElementProviderManager::FindProviderCallback(ElementProvider *, void *) { return 0 ; }
 	long __stdcall ElementProviderManager::Init() { return 0 ; }
-	void __stdcall ElementProviderManager::Remove(ElementProvider *) {
-	}
+	void __stdcall ElementProviderManager::Remove(ElementProvider *) {}
 	CRITICAL_SECTION ElementProviderManager::g_cs;
 	UiaArray<class ElementProvider *> * ElementProviderManager::g_pArrayPprv;
 
-	DUIFactory::DUIFactory(HWND) {
-	}
+	DUIFactory::DUIFactory(HWND) {}
 	DUIFactory::~DUIFactory(void) {}
 	DUIFactory & DUIFactory::operator=(DUIFactory const &){ return *this ; }
 	long DUIFactory::CreateParser(void) { return 0 ; }
@@ -3159,8 +3110,7 @@ namespace DirectUI
 	void BrowserSelectionProxy::Init(Element *) {}
 	long BrowserSelectionProxy::GetIsSelectionRequired(int *) { return 0 ; }
 	long BrowserSelectionProxy::GetSelection(SAFEARRAY **) { return 0 ; }
-	IDataEntry::IDataEntry() {
-	}
+	IDataEntry::IDataEntry() {}
 	IDataEntry::IDataEntry(IDataEntry const &) {}
 	IDataEntry::~IDataEntry(void) {}
 	IDataEntry & IDataEntry::operator=(IDataEntry const &){ return *this ; }
