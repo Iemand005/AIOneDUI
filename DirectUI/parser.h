@@ -263,10 +263,6 @@ namespace DirectUI
 
 		DUIXmlParser& operator=( const DUIXmlParser & );
 	
-		// Callback defines
-		/*
-		
-		*/
 		static long WINAPI Create(_Inout_ DUIXmlParser** pXmlParser, _In_opt_ GetSheetCallback, _In_opt_ void*sheetParam, _In_opt_ ParseErrorCallback, _In_opt_ void*parseErrorParam);
 		long CreateElement(UCString,class Element*, class Element*, unsigned long*, class Element**out);
 		
@@ -291,11 +287,17 @@ namespace DirectUI
 		long SetPreprocessedXML(UCString, HINSTANCE, HINSTANCE);
 		void SetUnavailableIcon(HICON);
 
-		HRESULT SetXML(UCString szXML, HINSTANCE hModule, HINSTANCE/*0x10000000 作用未知*/);
+		HRESULT SetXML(UCString szXML, HINSTANCE hModule, HINSTANCE hInstance);
 
-		//其资源必须在"UIFILE"类型中
-		HRESULT SetXMLFromResource(UINT uID, HINSTANCE hModule, HINSTANCE/*0x10000000 作用未知*/);
-		HRESULT SetXMLFromResource(UCString szID, HINSTANCE hModule, HINSTANCE/*0x10000000 作用未知*/);
+		// By default resources go in "UIFILE" but you can pass your own resource.
+		HRESULT SetXMLFromResource(UINT uID, HINSTANCE hModule, HINSTANCE hInstance);
+		HRESULT SetXMLFromResource(UCString szID, HINSTANCE hModule, HINSTANCE hInstance);
+		HRESULT SetXMLFromResource(UINT uID, UCString szID, HINSTANCE hModule, HINSTANCE hInstance); // These all call each other and eventually call _SetXMLFromResource, szResourceName gets set to "UIFILE" for the overloads that don't have it.
+		HRESULT SetXMLFromResource(UCString szID, UCString szResourceName, HINSTANCE hModule, HINSTANCE hInstance);
+		HRESULT SetXMLFromResourceWithTheme(UINT uID, HINSTANCE hModule, HINSTANCE hInstance1, HINSTANCE hInstance2);
+		HRESULT _SetXMLFromResource(UCString szID, UCString szResourceName, HINSTANCE hModule, HINSTANCE hInstance1, HINSTANCE hInstance2);
+
+
 
 		long UpdateSheets(Element*);
 		void _DestroyTables();

@@ -3678,7 +3678,7 @@ namespace DirectUI
 	void BaseScrollViewer::OnEvent(Event *)
 	{
 	}
-	long BaseScrollViewer::Add(Element **, unsigned int)
+	long BaseScrollViewer::Add(Element **, unsigned int amount)
 	{
 		return 0;
 	}
@@ -7967,6 +7967,302 @@ namespace DirectUI
 	{
 	}
 
+	ModernProgressBar::ModernProgressBar(void)
+	{
+	}
+
+	ModernProgressBar::~ModernProgressBar(void)
+	{
+	}
+
+	long ModernProgressBar::Create(Element*, unsigned long*, Element**)
+	{
+		return 0;
+	}
+
+	IClassInfo* ModernProgressBar::GetClassInfoPtr(void)
+	{
+		return nullptr;
+	}
+
+	PropertyInfo const* ModernProgressBar::PositionProp(void)
+	{
+		return nullptr;
+	}
+
+	PropertyInfo const* ModernProgressBar::MaximumProp(void)
+	{
+		return nullptr;
+	}
+
+	PropertyInfo const* ModernProgressBar::MinimumProp(void)
+	{
+		return nullptr;
+	}
+
+	PropertyInfo const* ModernProgressBar::StateProp(void)
+	{
+		return nullptr;
+	}
+
+	PropertyInfo const* ModernProgressBar::DeterminateProp(void)
+	{
+		return nullptr;
+	}
+
+	long ModernProgressBar::Register(void)
+	{
+		return 0;
+	}
+
+	int ModernProgressBar::GetMaximum(void)
+	{
+		return 0;
+	}
+
+	int ModernProgressBar::GetMinimum(void)
+	{
+		return 0;
+	}
+
+	int ModernProgressBar::GetPosition(void)
+	{
+		return 0;
+	}
+
+	int ModernProgressBar::GetState(void)
+	{
+		return 0;
+	}
+
+	bool ModernProgressBar::IsDeterminate(void)
+	{
+		return false;
+	}
+
+	bool ModernProgressBar::IsActivityOccuring(void)
+	{
+		return false;
+	}
+
+	bool ModernProgressBar::IsAddLayeredRef(void)
+	{
+		return false;
+	}
+
+	bool ModernProgressBar::IsAutoHeight(void)
+	{
+		return false;
+	}
+
+	bool ModernProgressBar::IsIndependentAnimations(void)
+	{
+		return false;
+	}
+
+	bool ModernProgressBar::IsSmoothFillAnimation(void)
+	{
+		return false;
+	}
+
+	long ModernProgressBar::SetMaximum(int)
+	{
+		return 0;
+	}
+
+	long ModernProgressBar::SetMinimum(int)
+	{
+		return 0;
+	}
+
+	long ModernProgressBar::SetPosition(int)
+	{
+		return 0;
+	}
+
+	long ModernProgressBar::SetState(int)
+	{
+		return 0;
+	}
+
+	long ModernProgressBar::SetDeterminate(bool)
+	{
+		return 0;
+	}
+
+	long ModernProgressBar::SetActivityOccuring(bool)
+	{
+		return 0;
+	}
+
+	long ModernProgressBar::SetAddLayeredRef(bool)
+	{
+		return 0;
+	}
+
+	long ModernProgressBar::SetAutoHeight(bool)
+	{
+		return 0;
+	}
+
+	long ModernProgressBar::SetIndependentAnimations(bool)
+	{
+		return 0;
+	}
+
+	long ModernProgressBar::SetSmoothFillAnimation(bool)
+	{
+		return 0;
+	}
+
+	IClassInfo* ModernProgressBar::GetClassInfoW(void)
+	{
+		return nullptr;
+	}
+
+	void ModernProgressBar::Paint(
+		HDC,
+		RECT const*,
+		RECT const*,
+		RECT*,
+		RECT*)
+	{
+	}
+
+	void ModernProgressBar::OnHosted(Element*)
+	{
+	}
+
+	void ModernProgressBar::OnUnHosted(Element*)
+	{
+	}
+
+	void ModernProgressBar::OnDestroy(void)
+	{
+	}
+
+	void ModernProgressBar::OnPropertyChanged(
+		PropertyInfo const*,
+		int,
+		Value*,
+		Value*)
+	{
+	}
+
+	ModernProgressBarRangeValueProxy::ModernProgressBarRangeValueProxy(void)
+	{
+	}
+
+	ModernProgressBarRangeValueProxy::ModernProgressBarRangeValueProxy(
+		ModernProgressBarRangeValueProxy const&)
+	{
+	}
+
+	ModernProgressBarRangeValueProxy::ModernProgressBarRangeValueProxy(
+		ModernProgressBarRangeValueProxy&&)
+	{
+	}
+
+	ModernProgressBarRangeValueProxy&
+		ModernProgressBarRangeValueProxy::operator=(
+			ModernProgressBarRangeValueProxy const&)
+	{
+		return *this;
+	}
+
+	ModernProgressBarRangeValueProxy&
+		ModernProgressBarRangeValueProxy::operator=(
+			ModernProgressBarRangeValueProxy&&)
+	{
+		return *this;
+	}
+
+	long ModernProgressBarRangeValueProxy::DoMethod(int, char*)
+	{
+		return 0;
+	}
+
+	void ModernProgressBarRangeValueProxy::Init(Element*)
+	{
+	}
+
+	ModernProgressRing::ModernProgressRing(void)
+	{
+	}
+
+	ModernProgressRing::~ModernProgressRing(void)
+	{
+	}
+
+	long ModernProgressRing::Create(Element*parent, unsigned long *deferKey, Element**newElement)
+	{
+		return 0;
+	}
+
+	IClassInfo* ModernProgressRing::GetClassInfoPtr(void)
+	{
+		return nullptr;
+	}
+
+	long ModernProgressRing::Register(void)
+	{
+		return 0;
+	}
+
+	bool ModernProgressRing::IsActivityOccuring(void)
+	{
+		return false;
+	}
+
+	bool ModernProgressRing::IsAddLayeredRef(void)
+	{
+		return false;
+	}
+
+	long ModernProgressRing::SetActivityOccuring(bool)
+	{
+		return 0;
+	}
+
+	long ModernProgressRing::SetAddLayeredRef(bool)
+	{
+		return 0;
+	}
+
+	//IClassInfo* ModernProgressRing::GetClassInfoW(void)
+	//{
+	//	return nullptr;
+	//}
+
+	//void ModernProgressRing::Paint(
+	//	HDC,
+	//	RECT const*,
+	//	RECT const*,
+	//	RECT*,
+	//	RECT*)
+	//{
+	//}
+
+	////void ModernProgressRing::OnHosted(Element*)
+	////{
+	////}
+
+	////void ModernProgressRing::OnUnHosted(Element*)
+	////{
+	////}
+
+	////void ModernProgressRing::OnDestroy(void)
+	////{
+	////}
+
+	//void ModernProgressRing::OnPropertyChanged(
+	//	PropertyInfo const*,
+	//	int,
+	//	Value*,
+	//	Value*)
+	//{
+	//}
+
 	template<class X, class Y, int i>
 	inline DirectUI::PatternProvider<X, Y, i>::PatternProvider()
 	{
@@ -10926,6 +11222,8 @@ namespace DirectUI
 	//	return S_OK;
 	//}
 
+	IClassInfo* TouchHWNDElement::s_pClassInfo = nullptr;
+
 	PropertyInfo * WINAPI RichText::BaselineProp(void) { return 0; }
   IClassInfo * WINAPI RichText::GetClassInfoPtr(void) { return 0; }
   PropertyInfo * WINAPI RichText::LineSpacingProp(void) { return 0; }
@@ -11017,4 +11315,88 @@ namespace DirectUI
 		return UID();
 	}
 
+
+
+	TouchHWNDElement::TouchHWNDElement() {}
+	TouchHWNDElement::~TouchHWNDElement() {}
+
+	long __stdcall TouchHWNDElement::Create(HWND hwnd, bool bFlag, unsigned int uiFlags, Element* parent, unsigned long* deferKey, Element** out)
+	{
+		return 0;
+	}
+
+	IClassInfo* __stdcall TouchHWNDElement::GetClassInfoPtr()
+	{
+		return s_pClassInfo;
+	}
+
+	long __stdcall TouchHWNDElement::Register()
+	{
+		return 0;
+	}
+
+	long TouchHWNDElement::Initialize(HWND hwnd, bool bFlag, unsigned int uiFlags, Element* parent, unsigned long* deferKey)
+	{
+		return 0;
+	}
+
+	void TouchHWNDElement::ActivateTooltip(Element*, unsigned long) {}
+	long TouchHWNDElement::DismissIHMAsync() { return 0; }
+	long TouchHWNDElement::HideTouchTooltip() { return 0; }
+	long TouchHWNDElement::IHMNotify() { return 0; }
+	unsigned int TouchHWNDElement::MessageCallback(tagGMSG*) { return 0; }
+	long TouchHWNDElement::MonitorPowerSettingsChange() { return 0; }
+	long TouchHWNDElement::ProcessingKeyboardNavigation() { return 0; }
+	long TouchHWNDElement::RegisterForAnimationStatusChanges() { return 0; }
+	long TouchHWNDElement::RegisterForIHMChanges() { return 0; }
+	long TouchHWNDElement::RegisterForMonitorPowerChanges() { return 0; }
+	void TouchHWNDElement::RemoveTooltip(Element*) {}
+	long TouchHWNDElement::ScaleChanged() { return 0; }
+	void TouchHWNDElement::SetFlags(TouchHWNDElementFlags, TouchHWNDElementFlags) {}
+	void TouchHWNDElement::SetLightDismissIHM(bool) {}
+	void TouchHWNDElement::SetTooltipMaximumLineCount(int) {}
+	void TouchHWNDElement::SetWindowAccessGradientColor(Value*) {}
+	void TouchHWNDElement::ShowRichTooltip(TOUCHTOOLTIP_INPUT, TOUCHTOOLTIP_OPTION_FLAGS, Element*) {}
+	void TouchHWNDElement::StartRichTooltipTimer(TOUCHTOOLTIP_INPUT) {}
+	void TouchHWNDElement::UpdateTooltip(Element*) {}
+	void TouchHWNDElement::UsePerMonitorScaling(HMONITOR*) {}
+	LRESULT TouchHWNDElement::WndProc(HWND*, UINT, WPARAM, LPARAM) { return 0; }
+	void TouchHWNDElement::_ClearTooltipState() {}
+	void TouchHWNDElement::_DestroyTooltip() {}
+	void TouchHWNDElement::_OnUIStateChanged(unsigned short, unsigned short) {}
+	void TouchHWNDElement::UnregisterForAnimationStatusChanges() {}
+	void TouchHWNDElement::UnregisterForIHMChanges() {}
+	void TouchHWNDElement::UnregisterForMonitorPowerChanges() {}
+
+	bool TouchHWNDElement::IsActivityOccuring() const { return false; }
+	bool TouchHWNDElement::IsAddLayeredRef() const { return false; }
+	bool TouchHWNDElement::IsMSAAEnabled() const { return false; }
+	bool TouchHWNDElement::IsRegisteredForAnimationStatusChanges() const { return false; }
+	bool TouchHWNDElement::ShouldUsePerMonitorScaling() const { return false; }
+
+	TouchHWNDElementFlags TouchHWNDElement::GetFlags() const { return TouchHWNDElementFlags::None; }
+	int TouchHWNDElement::GetIHMState() const { return 0; }
+	int TouchHWNDElement::GetTooltipMaximumLineCount() const { return 0; }
+
+	void TouchHWNDElement::GetIHMRect(RECT*) const {}
+	Value* TouchHWNDElement::GetWindowAccessGradientColor() const { return nullptr; }
+	bool TouchHWNDElement::GetLightDismissIHM() const { return false; }
+	bool TouchHWNDElement::TextTooltipShowing() const { return false; }
+	bool TouchHWNDElement::RichTooltipShowing() const { return false; }
+
+	IClassInfo* TouchHWNDElement::GetClassInfoW() { return s_pClassInfo; }
+	void TouchHWNDElement::OnHosted(Element*) {}
+	void TouchHWNDElement::OnUnHosted(Element*) {}
+	void TouchHWNDElement::OnDestroy() {}
+	void TouchHWNDElement::OnPropertyChanged(PropertyInfo const*, int, Value*, Value*) {}
+	void TouchHWNDElement::OnEvent(Event*) {}
+	void TouchHWNDElement::OnInput(InputEvent*) {}
+	void TouchHWNDElement::OnKeyFocusMoved(Element*, Element*) {}
+	void TouchHWNDElement::Paint(HDC, RECT const*, RECT const*, RECT*, RECT*) {}
+
+	const PropertyInfo* __stdcall TouchHWNDElement::FlagsProp() { return nullptr; }
+	const PropertyInfo* __stdcall TouchHWNDElement::LightDismissIHMProp() { return nullptr; }
+	const PropertyInfo* __stdcall TouchHWNDElement::TooltipMaximumLineCountProp() { return nullptr; }
+	const PropertyInfo* __stdcall TouchHWNDElement::ForwardingWindowMessage() { return nullptr; }
+	const PropertyInfo* __stdcall TouchHWNDElement::WindowAccessGradientColorProp() { return nullptr; }
 }
