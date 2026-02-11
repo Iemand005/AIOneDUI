@@ -3118,90 +3118,90 @@ namespace DirectUI
 	//HRESULT CClassFactory::Register(IClassInfo *) { return S_OK ; }
 	IClassInfo* TouchHWNDElement::s_pClassInfo = nullptr;
 	PropertyInfo * WINAPI RichText::BaselineProp(void) { return 0; }
-  IClassInfo * WINAPI RichText::GetClassInfoPtr(void) { return 0; }
-  PropertyInfo * WINAPI RichText::LineSpacingProp(void) { return 0; }
-  PropertyInfo * WINAPI RichText::OverhangOffsetProp(void) { return 0; }
-  HRESULT RichText::SetMaxLineCount(UINT) { return S_OK; }
-  PropertyInfo * WINAPI RichText::TypographyProp(void) { return 0; }
-  PropertyInfo * WINAPI RichText::AliasedRenderingProp(void) { return 0; }
-  PropertyInfo * WINAPI RichText::ColorFontPaletteIndexProp(void) { return 0; }
-  PropertyInfo * WINAPI RichText::ConstrainLayoutProp(void) { return 0; }
-  PropertyInfo * WINAPI RichText::DisableAccTextExtendProp(void) { return 0; }
-  PropertyInfo * WINAPI RichText::FontColorRunsProp(void) { return 0; }
-  PropertyInfo * WINAPI RichText::FontSizeRunsProp(void) { return 0; }
-  PropertyInfo * WINAPI RichText::FontWeightRunsProp(void) { return 0; }
-  HRESULT RichText::GetColorFontPaletteIndex(void) { return S_OK; }
-  HRESULT RichText::GetConstrainLayout(void) { return S_OK; }
-  PropertyInfo * WINAPI RichText::LocaleProp(void) { return 0; }
-  PropertyInfo * WINAPI RichText::MapRunsToClustersProp(void) { return 0; }
-  void RichText::OnEvent(DirectUI::Event *) {}
-  void RichText::Paint(HDC__ *,tagRECT const *,tagRECT const *,tagRECT *,tagRECT *) {}
-  PropertyInfo * WINAPI RichText::TypographyRunsProp(void) { return 0; }
-  PropertyInfo * WINAPI RichText::VerticalScriptProp(void) { return 0; }
-  HRESULT RichText::_EnsureLeadDrawOffsetIsSet(void) { return S_OK; }
-  HRESULT RichText::_FlushDWrite(void) { return S_OK; }
-  HRESULT RichText::_PrepareTextRender(void) { return S_OK; }
-  HRESULT RichText::_SetAcceleratorAccentIfAppropriate(void) { return S_OK; }
-  HRESULT RichText::_SetTypographyInternal(void) { return S_OK; }
-  HRESULT RichText::SetConstrainLayout(int) { return S_OK; }
-  HRESULT RichText::GetShortcutChar(void) { return S_OK; }
-  HRESULT RichText::SetAliasedRendering(bool) { return S_OK; }
-  HRESULT RichText::SetBaseline(int) { return S_OK; }
-  HRESULT RichText::SetColorFontPaletteIndex(int) { return S_OK; }
-  HRESULT RichText::SetDisableAccTextExtend(bool) { return S_OK; }
-  HRESULT RichText::SetFontColorRuns(USHORT const *) { return S_OK; }
-  HRESULT RichText::SetFontSizeRuns(USHORT const *) { return S_OK; }
-  HRESULT RichText::SetFontWeightRuns(USHORT const *) { return S_OK; }
-  HRESULT RichText::SetLineSpacing(int) { return S_OK; }
-  HRESULT RichText::SetLocale(USHORT const *) { return S_OK; }
-  HRESULT RichText::SetMapRunsToClusters(bool) { return S_OK; }
-  HRESULT RichText::SetOverhangOffset(int) { return S_OK; }
-  HRESULT RichText::SetTypography(USHORT const *) { return S_OK; }
-  HRESULT RichText::SetTypographyRuns(USHORT const *) { return S_OK; }
-  HRESULT RichText::SetVerticalScript(bool) { return S_OK; }
-  RichText::RichText(void) {}
-  HRESULT RichText::CreateCache(UINT,struct IDUIRichTextCache * *) { return S_OK; }
-  SIZE RichText::GetContentSize(int,int,DirectUI::Surface *) { return {}; }
-  HRESULT RichText::GetFactory(void) { return S_OK; }
-  HRESULT RichText::GetFontColorRuns(DirectUI::Value * *) { return S_OK; }
-  HRESULT RichText::GetForegroundColorRef(ULONG *) { return S_OK; }
-  HRESULT RichText::GetLineCount(void) { return S_OK; }
-  HRESULT RichText::GetTrimmedLineCount(void) { return S_OK; }
-  HRESULT RichText::GetVerticalScript(void) { return S_OK; }
-  HRESULT RichText::Initialize(DirectUI::Element *,ULONG *) { return S_OK; }
-  void RichText::OnHosted(DirectUI::Element *) {}
-  void RichText::OnPropertyChanged(DirectUI::PropertyInfo const *,int,DirectUI::Value *,DirectUI::Value *) {}
-  HRESULT RichText::SetCache(ULONG, struct IDUIRichTextCache *) { return S_OK; }
-  HRESULT RichText::SetDWriteFontCollection(IDWriteFontCollection *) { return S_OK; }
-  HRESULT RichText::SetDWriteTextLayout(IDWriteTextLayout *) { return S_OK; }
-  HRESULT RichText::StopUsingCache(void) { return S_OK; }
-  HRESULT RichText::_AdjustRangeForPathJoinCharacters(DWRITE_TEXT_RANGE *) { return S_OK; }
-  HRESULT RichText::_ApplyDrawTextFlags(void) { return S_OK; }
-  HRESULT RichText::_ApplyIntratextFormatting(void) { return S_OK; }
-  HRESULT RichText::_BuildRenderStringForDWrite(USHORT const *,USHORT,bool) { return S_OK; }
-  HRESULT RichText::_CreateDWriteLayout(tagRECT const *,DirectUI::Value *) { return S_OK; }
-  HRESULT RichText::_EnsureTextFormat(void) { return S_OK; }
-  HRESULT RichText::_GetDWFontSize(float,bool) { return S_OK; }
-  HRESULT RichText::_GetDWFontWeight(void) { return S_OK; }
-  HRESULT RichText::_GetDWMetrics(DWRITE_TEXT_METRICS *) { return S_OK; }
-  HRESULT RichText::_GetDWOverhangMetrics(DWRITE_OVERHANG_METRICS *) { return S_OK; }
-  HRESULT RichText::_GetDefaultOverhang(void) { return S_OK; }
-  HRESULT RichText::_GetMinSizeWidth(void) { return S_OK; }
-  HRESULT RichText::_GetScaledOverhangOffset(void) { return S_OK; }
-  HRESULT RichText::_InitDWrite(void) { return S_OK; }
-  HRESULT RichText::_PaintStringContentDWrite(HDC__ *,tagRECT const *,tagRECT const *,DirectUI::Value *) { return S_OK; }
-  HRESULT RichText::_SetFontColorRun(USHORT const *,DWRITE_TEXT_RANGE) { return S_OK; }
-  HRESULT RichText::_SetFontSizeRun(USHORT const *,DWRITE_TEXT_RANGE) { return S_OK; }
-  HRESULT RichText::_SetFontSizeRunsInternal(void) { return S_OK; }
-  HRESULT RichText::_SetFontWeightRun(USHORT const *,DWRITE_TEXT_RANGE) { return S_OK; }
-  HRESULT RichText::_SetFontWeightRunsInternal(void) { return S_OK; }
-  HRESULT RichText::_SetLineSpacingInternal(void) { return S_OK; }
-  HRESULT RichText::_SetRangedStringRunsWithValue(USHORT const *,enum StringRunStyles) { return S_OK; }
-  HRESULT RichText::_SetStrikethrough(void) { return S_OK; }
-  HRESULT RichText::_SetTypographyRun(USHORT const *,DWRITE_TEXT_RANGE) { return S_OK; }
-  HRESULT RichText::_SetTypographyRunsInternal(void) { return S_OK; }
-  HRESULT RichText::_SetUnderline(void) { return S_OK; }
-  HRESULT RichText::_UpdateRangeForClusterMetrics(DWRITE_TEXT_RANGE *) { return S_OK; }
+	IClassInfo * WINAPI RichText::GetClassInfoPtr(void) { return 0; }
+	PropertyInfo * WINAPI RichText::LineSpacingProp(void) { return 0; }
+	PropertyInfo * WINAPI RichText::OverhangOffsetProp(void) { return 0; }
+	HRESULT RichText::SetMaxLineCount(UINT) { return S_OK; }
+	PropertyInfo * WINAPI RichText::TypographyProp(void) { return 0; }
+	PropertyInfo * WINAPI RichText::AliasedRenderingProp(void) { return 0; }
+	PropertyInfo * WINAPI RichText::ColorFontPaletteIndexProp(void) { return 0; }
+	PropertyInfo * WINAPI RichText::ConstrainLayoutProp(void) { return 0; }
+	PropertyInfo * WINAPI RichText::DisableAccTextExtendProp(void) { return 0; }
+	PropertyInfo * WINAPI RichText::FontColorRunsProp(void) { return 0; }
+	PropertyInfo * WINAPI RichText::FontSizeRunsProp(void) { return 0; }
+	PropertyInfo * WINAPI RichText::FontWeightRunsProp(void) { return 0; }
+	HRESULT RichText::GetColorFontPaletteIndex(void) { return S_OK; }
+	HRESULT RichText::GetConstrainLayout(void) { return S_OK; }
+	PropertyInfo * WINAPI RichText::LocaleProp(void) { return 0; }
+	PropertyInfo * WINAPI RichText::MapRunsToClustersProp(void) { return 0; }
+	void RichText::OnEvent(DirectUI::Event *) {}
+	void RichText::Paint(HDC__ *,tagRECT const *,tagRECT const *,tagRECT *,tagRECT *) {}
+	PropertyInfo * WINAPI RichText::TypographyRunsProp(void) { return 0; }
+	PropertyInfo * WINAPI RichText::VerticalScriptProp(void) { return 0; }
+	HRESULT RichText::_EnsureLeadDrawOffsetIsSet(void) { return S_OK; }
+	HRESULT RichText::_FlushDWrite(void) { return S_OK; }
+	HRESULT RichText::_PrepareTextRender(void) { return S_OK; }
+	HRESULT RichText::_SetAcceleratorAccentIfAppropriate(void) { return S_OK; }
+	HRESULT RichText::_SetTypographyInternal(void) { return S_OK; }
+	HRESULT RichText::SetConstrainLayout(int) { return S_OK; }
+	HRESULT RichText::GetShortcutChar(void) { return S_OK; }
+	HRESULT RichText::SetAliasedRendering(bool) { return S_OK; }
+	HRESULT RichText::SetBaseline(int) { return S_OK; }
+	HRESULT RichText::SetColorFontPaletteIndex(int) { return S_OK; }
+	HRESULT RichText::SetDisableAccTextExtend(bool) { return S_OK; }
+	HRESULT RichText::SetFontColorRuns(USHORT const *) { return S_OK; }
+	HRESULT RichText::SetFontSizeRuns(USHORT const *) { return S_OK; }
+	HRESULT RichText::SetFontWeightRuns(USHORT const *) { return S_OK; }
+	HRESULT RichText::SetLineSpacing(int) { return S_OK; }
+	HRESULT RichText::SetLocale(USHORT const *) { return S_OK; }
+	HRESULT RichText::SetMapRunsToClusters(bool) { return S_OK; }
+	HRESULT RichText::SetOverhangOffset(int) { return S_OK; }
+	HRESULT RichText::SetTypography(USHORT const *) { return S_OK; }
+	HRESULT RichText::SetTypographyRuns(USHORT const *) { return S_OK; }
+	HRESULT RichText::SetVerticalScript(bool) { return S_OK; }
+	RichText::RichText(void) {}
+	HRESULT RichText::CreateCache(UINT,struct IDUIRichTextCache * *) { return S_OK; }
+	SIZE RichText::GetContentSize(int,int,DirectUI::Surface *) { return {}; }
+	HRESULT RichText::GetFactory(void) { return S_OK; }
+	HRESULT RichText::GetFontColorRuns(DirectUI::Value * *) { return S_OK; }
+	HRESULT RichText::GetForegroundColorRef(ULONG *) { return S_OK; }
+	HRESULT RichText::GetLineCount(void) { return S_OK; }
+	HRESULT RichText::GetTrimmedLineCount(void) { return S_OK; }
+	HRESULT RichText::GetVerticalScript(void) { return S_OK; }
+	HRESULT RichText::Initialize(DirectUI::Element *,ULONG *) { return S_OK; }
+	void RichText::OnHosted(DirectUI::Element *) {}
+	void RichText::OnPropertyChanged(DirectUI::PropertyInfo const *,int,DirectUI::Value *,DirectUI::Value *) {}
+	HRESULT RichText::SetCache(ULONG, struct IDUIRichTextCache *) { return S_OK; }
+	HRESULT RichText::SetDWriteFontCollection(IDWriteFontCollection *) { return S_OK; }
+	HRESULT RichText::SetDWriteTextLayout(IDWriteTextLayout *) { return S_OK; }
+	HRESULT RichText::StopUsingCache(void) { return S_OK; }
+	HRESULT RichText::_AdjustRangeForPathJoinCharacters(DWRITE_TEXT_RANGE *) { return S_OK; }
+	HRESULT RichText::_ApplyDrawTextFlags(void) { return S_OK; }
+	HRESULT RichText::_ApplyIntratextFormatting(void) { return S_OK; }
+	HRESULT RichText::_BuildRenderStringForDWrite(USHORT const *,USHORT,bool) { return S_OK; }
+	HRESULT RichText::_CreateDWriteLayout(tagRECT const *,DirectUI::Value *) { return S_OK; }
+	HRESULT RichText::_EnsureTextFormat(void) { return S_OK; }
+	HRESULT RichText::_GetDWFontSize(float,bool) { return S_OK; }
+	HRESULT RichText::_GetDWFontWeight(void) { return S_OK; }
+	HRESULT RichText::_GetDWMetrics(DWRITE_TEXT_METRICS *) { return S_OK; }
+	HRESULT RichText::_GetDWOverhangMetrics(DWRITE_OVERHANG_METRICS *) { return S_OK; }
+	HRESULT RichText::_GetDefaultOverhang(void) { return S_OK; }
+	HRESULT RichText::_GetMinSizeWidth(void) { return S_OK; }
+	HRESULT RichText::_GetScaledOverhangOffset(void) { return S_OK; }
+	HRESULT RichText::_InitDWrite(void) { return S_OK; }
+	HRESULT RichText::_PaintStringContentDWrite(HDC__ *,tagRECT const *,tagRECT const *,DirectUI::Value *) { return S_OK; }
+	HRESULT RichText::_SetFontColorRun(USHORT const *,DWRITE_TEXT_RANGE) { return S_OK; }
+	HRESULT RichText::_SetFontSizeRun(USHORT const *,DWRITE_TEXT_RANGE) { return S_OK; }
+	HRESULT RichText::_SetFontSizeRunsInternal(void) { return S_OK; }
+	HRESULT RichText::_SetFontWeightRun(USHORT const *,DWRITE_TEXT_RANGE) { return S_OK; }
+	HRESULT RichText::_SetFontWeightRunsInternal(void) { return S_OK; }
+	HRESULT RichText::_SetLineSpacingInternal(void) { return S_OK; }
+	HRESULT RichText::_SetRangedStringRunsWithValue(USHORT const *,enum StringRunStyles) { return S_OK; }
+	HRESULT RichText::_SetStrikethrough(void) { return S_OK; }
+	HRESULT RichText::_SetTypographyRun(USHORT const *,DWRITE_TEXT_RANGE) { return S_OK; }
+	HRESULT RichText::_SetTypographyRunsInternal(void) { return S_OK; }
+	HRESULT RichText::_SetUnderline(void) { return S_OK; }
+	HRESULT RichText::_UpdateRangeForClusterMetrics(DWRITE_TEXT_RANGE *) { return S_OK; }
 
 	UID WINAPI TouchButton::Click(void) { return UID() ; }
 
