@@ -1,6 +1,6 @@
 #pragma once
 
-typedef class UID (WINAPI *UIDPROC)();
+typedef class UID(WINAPI* UIDPROC)();
 
 class UID
 {
@@ -54,7 +54,7 @@ namespace DirectUI
 		"otherwise linking to dui70.dll functions using WCHAR will fail.");
 
 
-	typedef class ProviderProxy* (CALLBACK *PfnCreateProxy)(class Element*);
+	typedef class ProviderProxy* (CALLBACK* PfnCreateProxy)(class Element*);
 	typedef int MethodId;
 
 

@@ -2,35 +2,29 @@
 
 namespace DirectUI
 {
-	class UILIB_API StyledScrollViewer : public BaseScrollViewer
+	class UILIB_API StyledScrollViewer
+		: public BaseScrollViewer
 	{
 	public:
-		StyledScrollViewer();
-		StyledScrollViewer(const StyledScrollViewer& other) = default;
-		~StyledScrollViewer() override;
+		StyledScrollViewer(StyledScrollViewer const &);
+		StyledScrollViewer(void);
+		virtual ~StyledScrollViewer(void);
+		StyledScrollViewer & operator=(StyledScrollViewer const &);
 
-		static HRESULT WINAPI Create(Element* peParent, DWORD* pdwDeferCookie, Element** ppElement);
-
-		void OnListenedPropertyChanged(Element* peFrom, const PropertyInfo* ppi, int iIndex, Value* pvOld, Value* pvNew) override;
-
-		static IClassInfo* WINAPI GetClassInfoPtr();
-		static void WINAPI SetClassInfoPtr(IClassInfo* pClass);
-
-	private :
-		static IClassInfo* s_pClassInfo;
-
-	public:
-		IClassInfo* GetClassInfoW() override;
-		static HRESULT WINAPI Register();
-
+		static long __stdcall Create(Element *, unsigned long *, Element * *);
+		static IClassInfo * __stdcall GetClassInfoPtr(void);
+		static long __stdcall Register(void);
+		static void __stdcall SetClassInfoPtr(IClassInfo *);
+		
+		virtual IClassInfo * GetClassInfoW(void);
+		virtual void OnListenedPropertyChanged(Element *, PropertyInfo const *, int, Value *, Value *);
 	protected:
-		HRESULT CreateScrollBars() override;
-		HRESULT AddChildren() override;
-		BaseScrollBar* GetHScroll() override;
-		BaseScrollBar* GetVScroll() override;
+		virtual long AddChildren(void);
+		virtual long CreateScrollBars(void);
+		virtual BaseScrollBar * GetHScroll(void);
+		virtual BaseScrollBar * GetVScroll(void);
+	private:
+		static IClassInfo * s_pClassInfo;
 
-	private :
-		ScrollBar* _peHScroll;
-		ScrollBar* _peVScroll;
 	};
 }

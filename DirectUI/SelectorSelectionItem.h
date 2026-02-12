@@ -2,7 +2,7 @@
 
 namespace DirectUI
 {
-	class UILIB_API SelectorSelectionItemProxy : public SelectionItemProxy
+	class UILIB_API SelectorSelectionItemProxy : public IProxy
 	{
 	public:
 		SelectorSelectionItemProxy(SelectorSelectionItemProxy const &);

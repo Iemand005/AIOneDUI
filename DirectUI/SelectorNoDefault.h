@@ -2,30 +2,27 @@
 
 namespace DirectUI
 {
-	class UILIB_API SelectorNoDefault : public Selector
+	class UILIB_API SelectorNoDefault :public Selector
 	{
 	public:
-		static HRESULT WINAPI Create(Element*, unsigned long*, Element**);
+		SelectorNoDefault(SelectorNoDefault const &);
+		SelectorNoDefault(void);
+		virtual ~SelectorNoDefault(void);
+		SelectorNoDefault & operator=(SelectorNoDefault const &);
 
-		void OnEvent(Event* pEvent) override;
-		void OnKeyFocusMoved(Element* peFrom, Element* peTo) override;
-
-		static IClassInfo* WINAPI GetClassInfoPtr();
-		static void WINAPI SetClassInfoPtr(IClassInfo* pClass);
-
+		static long __stdcall Create(Element *, unsigned long *, Element * *);
+		static IClassInfo * __stdcall GetClassInfoPtr(void);
+		static long __stdcall Register(void);
+		static void __stdcall SetClassInfoPtr(IClassInfo *);
+		
+		long Initialize(Element *, unsigned long *);
+		
+		virtual IClassInfo * GetClassInfoW(void);
+		virtual void OnEvent(Event *);
+		virtual void OnKeyFocusMoved(Element *, Element *);
+		virtual long SetSelection(Element *);
 	private:
-		static IClassInfo* s_pClassInfo;
+		static IClassInfo * s_pClassInfo;
 
-	public:
-		IClassInfo* GetClassInfoW() override;
-		static HRESULT Register();
-
-		HRESULT SetSelection(Element* peSelection) override;
-
-		SelectorNoDefault();
-		SelectorNoDefault(const SelectorNoDefault& other) = default;
-		SelectorNoDefault(SelectorNoDefault&& other) noexcept = default;
-
-		static HRESULT WINAPI Initialize(Element* pParent, DWORD* pdwDeferCookie);
 	};
 }

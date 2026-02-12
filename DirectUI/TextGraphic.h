@@ -5,28 +5,25 @@ namespace DirectUI
 	class UILIB_API TextGraphic : public Element
 	{
 	public:
-		static HRESULT WINAPI Create(Element* pParent, DWORD* pdwDeferCookie, Element** ppElement);
+		TextGraphic(TextGraphic const &);
+		TextGraphic(void);
+		virtual ~TextGraphic(void);
+		TextGraphic & operator=(TextGraphic const &);
 
-		HRESULT Initialize(Element* pParent, DWORD* pdwDeferCookie);
+		static long __stdcall Create(Element *, unsigned long *, Element * *);
+		static IClassInfo * __stdcall GetClassInfoPtr(void);
+		static long __stdcall Register(void);
+		static void __stdcall SetClassInfoPtr(IClassInfo *);
+		static PropertyInfo const * __stdcall SideGraphicProp(void);
 
-		static const PropertyInfo* WINAPI SideGraphicProp();
+		long Initialize(Element *, unsigned long *);
 
-		bool OnPropertyChanging(const PropertyInfo* ppi, int iIndex, Value* pvOld, Value* pvNew) override;
-		void OnPropertyChanged(const PropertyInfo* ppi, int iIndex, Value* pvOld, Value* pvNew) override;
-		LPCWSTR GetContentStringAsDisplayed(Value** ppv) override;
-
-		static IClassInfo* WINAPI GetClassInfoPtr();
-		static void WINAPI SetClassInfoPtr(IClassInfo* pClass);
+		virtual IClassInfo * GetClassInfoW(void);
+		virtual unsigned short const * GetContentStringAsDisplayed(Value * *);
+		virtual void OnPropertyChanged(PropertyInfo const *, int, Value *, Value *);
+		virtual bool OnPropertyChanging(PropertyInfo const *, int, Value *, Value *);
 
 	private:
-		static IClassInfo* s_pClassInfo;
-
-	public:
-		IClassInfo* GetClassInfoW() override;
-		static HRESULT WINAPI Register();
-
-	protected:
-		Element* _peText;
-		Element* _peGraphic;
+		static IClassInfo * s_pClassInfo;
 	};
 }

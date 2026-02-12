@@ -5,32 +5,30 @@ namespace DirectUI
 	class UILIB_API Expando : public Expandable
 	{
 	public:
-		static HRESULT WINAPI Create(Element* pParent, DWORD* pdwDeferCookie, Element** ppElement);
+		Expando(Expando const &);
+		Expando(void);
+		virtual ~Expando(void);
+		Expando & operator=(Expando const &);
 
-		void OnEvent(Event* pEvent) override;
-		void OnPropertyChanged(const PropertyInfo* ppi, int iIndex, Value* pvOld, Value* pvNew) override;
-		HRESULT Add(Element** ppe, UINT cCount) override;
+		static long __stdcall Register(void);
+		static void __stdcall SetClassInfoPtr(IClassInfo *);
+		static long __stdcall Create(Element *, unsigned long *, Element * *);
+		static IClassInfo * __stdcall GetClassInfoPtr(void);
 
-		static IClassInfo* WINAPI GetClassInfoPtr();
-		static void WINAPI SetClassInfoPtr(IClassInfo* pClass);
+		long Initialize(Element *, unsigned long *);
 
-	private:
-		static IClassInfo* s_pClassInfo;
-
-	public:
-		IClassInfo* GetClassInfoW() override;
-		static HRESULT WINAPI Register();
-
-		HRESULT Initialize(Element* pParent, DWORD* pdwDeferCookie);
-
+		virtual long Add(Element * *, unsigned int);
+		virtual IClassInfo * GetClassInfoW(void);
+		virtual void OnEvent(Event *);
+		virtual void OnPropertyChanged(PropertyInfo const *, int, Value *, Value *);
 	protected:
-		static ATOM Arrow();
-		static ATOM Clipper();
-		void UpdateChildren(Value* pvNew);
+		static unsigned short __stdcall Arrow(void);
+		static unsigned short __stdcall Clipper(void);
+		void UpdateChildren(Value *);
 
 	private:
-		bool _fExpanding;
-		static ATOM _atmArrow;
-		static ATOM _atmClipper;
+		static unsigned short _atmArrow;
+		static unsigned short _atmClipper;
+		static IClassInfo * s_pClassInfo;
 	};
 }

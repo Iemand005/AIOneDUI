@@ -1,22 +1,16 @@
 #pragma once
-
 #include <Windows.h>
 #include <oleacc.h>
 #include <objbase.h>
 #include <initguid.h>
+#include <oleacc.h>
 #include <Commctrl.h>
+#include <combaseapi.h>
+#include <ShlObj.h>
 #include <UIAutomationCore.h>
 #include <UIAutomationCoreApi.h>
 #include <DbgHelp.h>
-#include <thumbcache.h>
 #include <XmlLite.h>
-#include <InputScope.h> // for InputScope enum
-#include <intsafe.h>
-#include <crtdbg.h>
-#include <directmanipulation.h>
-#include <Corecrt_math.h>
-
-#include "../DUser/DUser.h"
 
 #if	defined(DIRECTUI_EXPORTS)
 #define UILIB_API __declspec(dllexport)
@@ -24,289 +18,228 @@
 #define UILIB_API __declspec(dllimport)
 #endif
 
-EXTERN_C IMAGE_DOS_HEADER __ImageBase;
-#define HINST_THISCOMPONENT ((HINSTANCE)&__ImageBase)
-
-#define DUI_VERSION 14
-
-#define DUICLASS(className) class UILIB_API className
-#define DUICLASS_(className, baseClass) class UILIB_API className : public baseClass
+#include <DUser.h>
 
 #include "Types.h"
-#include "Extensions\Misc.h"
-#include "Base\Alloc.h"
-#include "Base\DynamicArray.h"
-#include "Base\Surface.h"
-#include "Base\SBAlloc.h"
-#include "Core\Event.h"
+#include "misc.h"
 #include "Interfaces.h"
-
-// Layout
-#include "Core\Layout.h"
-#include "Layout\BorderLayout.h"
-#include "Layout\ShellBorderLayout.h"
-#include "Layout\VerticalFlowLayout.h"
-#include "Layout\FlowLayout.h"
-#include "Layout\NineGridLayout.h"
-#include "Layout\FillLayout.h"
-#include "Layout\TableLayout.h"
-#include "Layout\RowLayout.h"
-#include "Layout\GridLayout.h"
 
 #include "AutoLock.h"
 #include "AutoThread.h"
 #include "AutoVariant.h"
-#include "SafeElementPtr.h"
-#include "SimpleTimer.h"
-#include "UIAutomation\RefcountBase.h"
+#include "Value.h"
+#include "DynamicArray.h"
+#include "RefcountBase.h"
+
+#include "DuiProxy.h"
+
+#include "InvokeManager.h"
+ 
+#include "ElementProvider.h"
+#include "ElementProviderManager.h"
+#include "SelectionProvider.h"
 
 #include "Primitives.h"
-#include "DuiProxy.h"
-#include "UIAutomation\UiaSchema.h"
-#include "Core\Element.h"
-#include "UIAutomation\ElementProvider.h"
-#include "UIAutomation\PatternProvider.h"
-#include "PropNotify.h"
-#include "Core\Expression.h"
-#include "Core\Value.h"
-#include "UIAutomation\ValueProvider.h"
-#include "ValuePtr.h"
-#include "Core\Thread.h"
-#include "Parser\XmlParser.h"
-#include "Core\Sheet.h"
-#include "Extensions\Browser.h"
+#include "XmlParser.h"
+
+//#include "ProviderProxy.h"
+
+#include "Element.h"
+
+#include "Browser.h"
 #include "Bind.h"
-#include "Control\AnimationStrip.h"
-#include "Control\Button.h"
-#include "Base.h"
-#include "ClassInfo.h"
-#include "Core\ElementHelpers.h"
-#include "Extensions\AccessibleButton.h"
-#include "Extensions\AutoButton.h"
-#include "Extensions\PushButton.h"
-#include "Extensions\XHost.h"
-#include "Core\Accessibility.h"
-#include "Provider.h"
-#include "Control\Movie.h"
-#include "Control\ElementWithHWND.h"
-#include "Core\Host.h"
-#include "Extensions\DialogElement.h"
-#include "Control\NativeHWNDHost.h"
-#include "Control\HWNDHost.h"
-
-#include "Extensions\CommonControls\CBase.h"
-#include "Extensions\CommonControls\CAVI.h"
-#include "Extensions\CommonControls\CPushButton.h"
-#include "Extensions\CommonControls\CBaseCheckRadioButton.h"
-#include "Extensions\CommonControls\CBaseScrollBar.h"
-#include "Extensions\CommonControls\CHScrollBar.h"
-#include "Extensions\CommonControls\CCheckBox.h"
-#include "Extensions\CommonControls\CCommandLink.h"
-#include "Extensions\CommonControls\CListBox.h"
-#include "Extensions\CommonControls\CListView.h"
-#include "Extensions\CommonControls\CProgressBar.h"
-#include "Extensions\CommonControls\CRadioButton.h"
-#include "Extensions\CommonControls\CCSysLink.h"
-#include "Extensions\CommonControls\CTrackBar.h"
-#include "Extensions\CommonControls\CTreeView.h"
-#include "Extensions\CommonControls\CVScrollBar.h"
-
-#include "Core\CallstackTracker.h"
+#include "AnimationStrip.h"
+#include "Button.h"
+#include "base.h"
+#include "AccessibleButton.h"
+#include "AutoButton.h"
+#include "PushButton.h"
+#include "event.h"
+#include "layout.h"
+#include "BorderLayout.h"
+#include "host.h"
+#include "accessibility.h"
+#include "provider.h"
+#include "Movie.h"
+#include "ElementWithHWND.h"
+#include "HWNDElement.h"
+#include "TouchHWNDElement.h"
+#include "DialogElement.h"
+#include "NativeHWNDHost.h"
+#include "HWNDHost.h"
+#include "CBase.h"
+#include "CAVI.h"
+#include "CPushButton.h"
+#include "CBaseCheckRadioButton.h"
+#include "CBaseScrollBar.h"
+#include "CHScrollBar.h"
+#include "CCheckBox.h"
+#include "CCommandLink.h"
+#include "CListBox.h"
+#include "CListView.h"
+#include "CProgressBar.h"
+#include "CRadioButton.h"
+#include "CCSysLink.h"
+#include "CTrackBar.h"
+#include "CTreeView.h"
+#include "CVScrollBar.h"
+#include "CallstackTracker.h"
 #include "CheckBoxGlyph.h"
-#include "Control\Expandable.h"
+#include "Expandable.h"
 #include "Clipper.h"
-#include "Control\Combobox.h"
-#include "Core\Navigation.h"
-#include "Control\Edit.h"
-#include "UIAutomation\EventManager.h"
-#include "UIAutomation\ExpandCollapseProvider.h"
+#include "Combobox.h"
+#include "DuiNavigate.h"
+#include "Edit.h"
+#include "Element.h"
+#include "EventManager.h"
+#include "ExpandCollapse.h"
 #include "Expando.h"
 #include "ExpandoButtonGlyph.h"
-#include "Base\FontCache.h"
+#include "FontCache.h"
 #include "FontCheckOut.h"
-#include "UIAutomation\GridItemProvider.h"
-#include "UIAutomation\GridProvider.h"
-#include "UIAutomation\HWNDElementProvider.h"
-#include "UIAutomation\InvokeManager.h"
-#include "UIAutomation\InvokeProvider.h"
-#include "Base\LinkedList.h"
-#include "Extensions\Macro.h"
+#include "GridItem.h"
+#include "Grid.h"
+#include "HWNDElement.h"
+#include "InvokeHelper.h"
+#include "LinkedList.h"
+#include "Macro.h"
 #include "NavScoring.h"
 #include "Navigator.h"
 #include "TextGraphic.h"
 #include "PText.h"
 #include "Page.h"
-#include "Control\Progress.h"
+#include "Progress.h"
+#include "ModernProgressRing.h"
+#include "ModernProgressBar.h"
 #include "RadioButtonGlyph.h"
-#include "UIAutomation\RangeValueProvider.h"
-#include "Control\RefPointElement.h"
-#include "Control\RepeatButton.h"
+#include "RangeValue.h"
+#include "RefPointElement.h"
+#include "RepeatButton.h"
 #include "Repeater.h"
-#include "Control\ScrollBar.h"
-#include "UIAutomation\ScrollItemProvider.h"
-#include "UIAutomation\ScrollProvider.h"
-#include "Control\ScrollViewer.h"
-#include "UIAutomation\SelectionItemProvider.h"
-#include "UIAutomation\SelectionProvider.h"
-#include "Control\Selector.h"
+#include "ScrollBar.h"
+#include "ScrollItem.h"
+#include "Scroll.h"
+#include "ScrollViewer.h"
+#include "SelectionItem.h"
+#include "Selection.h"
+#include "Selector.h"
 #include "SelectorNoDefault.h"
-#include "Control\ItemList.h"
 #include "SelectorSelectionItem.h"
 #include "SelectorSelection.h"
 #include "StyledScrollViewer.h"
-#include "UIAutomation\TableItemProvider.h"
-#include "UIAutomation\TableProvider.h"
-#include "Extensions\WizPageBase.h"
-#include "Control\Thumb.h"
-#include "UIAutomation\ToggleProvider.h"
-#include "Core\UnknownElement.h"
-#include "Control\Viewer.h"
-#include "Extensions\XBaby.h"
-#include "Extensions\XElement.h"
-#include "Extensions\XProvider.h"
+#include "TableItem.h"
+#include "Table.h"
+#include "TaskPage.h"
+#include "Thumb.h"
+#include "Toggle.h"
+#include "UnknownElement.h"
+#include "Viewer.h"
+#include "XBaby.h"
+#include "XElement.h"
+#include "XProvider.h"
 #include "BrowserSelection.h"
-#include "Control\RichText.h"
-#include "Control\SemanticController.h"
-#include "Control\ManipulationHelper.h"
-#include "PromptText.h"
-//#include "Core\IDuiLauncherAnimationTriggers.h"
-#include "DuiAnimation.h"
 
-// Touch elements
-#include "Control\ModernProgressBar.h"
-#include "Control\TouchButton.h"
-#include "Control\TouchCheckBox.h"
-#include "Control\TouchHWNDElement.h"
-#include "Control\TouchScrollBar.h"
-#include "Control\TouchScrollViewer.h"
-#include "Control\TouchSelect.h"
-#include "Control\TouchSelectProvider.h"
-#include "Control\TouchSlider.h"
-#include "Control\TouchSwitch.h"
-#include "Control\TouchTooltip.h"
-#include "Control\TouchEditBase.h"
-#include "Control\TouchEditInner.h"
-#include "Control\TouchEdit2.h"
-#include "Control\TouchHyperLink.h"
+#include "RichText.h"
 
-#include "SemanticZoomToggle.h"
-#include "ElementProviderManager.h"
+#include "TouchButton.h"
+#include "TouchSwitch.h"
+//#include "TouchSlider.h"
+//#include "TouchScrollViewer.h"
+//#include "TouchCheckBox.h"
+#include "InputScope.h"
+#include "TouchEditBase.h"
+#include "TouchEdit2.h"
 
-#include "Control\ModernProgressRing.h"
+
+#include "CClassFactory.h"
 
 //UnknownElement
 
-UILIB_API void WINAPI DumpDuiTree(DirectUI::Element* pe, BOOL fShowProperties);
-UILIB_API void WINAPI DumpDuiProperties(DirectUI::Element* pe);
-
-extern "C" UILIB_API HRESULT WINAPI DuiCreateObject(REFCLSID rclsid, REFIID riid, void** ppv);
-
-#include "PVLTrigger.h"
-#include "PVLLauncherTrigger.h"
-#include "Core\BehaviorEngine.h"
-#include "Core\BehaviorEngineHelper.h"
-#include "StockBehaviors\ContextMenuBehavior.h"
+UILIB_API void WINAPI DumpDuiTree(DirectUI::Element *, int);
+UILIB_API void WINAPI DumpDuiProperties(DirectUI::Element *);
 
 namespace DirectUI
 {
-	extern UILIB_API DWORD g_dwElSlot;
+	extern UILIB_API unsigned long g_dwElSlot;
 
-	extern "C"
-	{
-		// @Careful: fInitCommctl is new in Windows 10
-		HRESULT WINAPI InitProcessPriv(DWORD dwExpectedVersion, HMODULE hModule, bool fRegisterControls, bool fEnableUIAutomationProvider, bool fInitCommctl);
+	HRESULT WINAPI InitProcessPriv(int duiVersion, unsigned short*unk1, char unk2, bool bEnableUIAutomationProvider);
+	HRESULT WINAPI UnInitProcessPriv(unsigned short*unk1);
+	EXTERN_C HRESULT WINAPI InitThread(int iDontKnow);
+	void WINAPI UnInitThread();
 
-		FORCEINLINE HRESULT WINAPI InitProcess(DWORD dwExpectedVersion, bool fEnableUIAutomationProvider = true, bool fInitCommctl = true)
-		{
-			return InitProcessPriv(dwExpectedVersion, HINST_THISCOMPONENT, true, fEnableUIAutomationProvider, fInitCommctl);
-		}
+	int WINAPI CreateDUIWrapper(Element*,class XProvider**);
+	int WINAPI CreateDUIWrapperEx(Element*, class IXProviderCP*, class XProvider**);
+	int WINAPI CreateDUIWrapperFromResource(HINSTANCE,const WCHAR*, const WCHAR*, const WCHAR*, class XResourceProvider**);
 
-		HRESULT WINAPI UnInitProcessPriv(HMODULE hModule);
-		FORCEINLINE HRESULT WINAPI UnInitProcess() { return UnInitProcessPriv(HINST_THISCOMPONENT); }
-		HRESULT WINAPI InitThread(UINT nThreadMode);
-		void WINAPI UnInitThread();
+	int WINAPI GetScreenDPI();
 
-		HRESULT WINAPI CreateDUIWrapper(Element* pe, IUnknown** ppunk);
-		HRESULT WINAPI CreateDUIWrapperEx(Element* pe, IXProviderCP* pprovCP, IUnknown** ppunk);
-		HRESULT WINAPI CreateDUIWrapperFromResource(HINSTANCE hRes, const WCHAR* pszResource, const WCHAR* pszResID, const WCHAR* pszFile, IUnknown** ppunk);
+	int WINAPI RegisterAllControls();
+	int WINAPI RegisterBaseControls();
+	int WINAPI RegisterBrowserControls();
+	int WINAPI RegisterCommonControls();
+	int WINAPI RegisterExtendedControls();
+	int WINAPI RegisterMacroControls();
+	int WINAPI RegisterMiscControls();
+	int WINAPI RegisterStandardControls();
+	int WINAPI RegisterXControls();
 
-		// int WINAPI GetScreenDPI();
+	int WINAPI StartMessagePump();
+	int WINAPI StopMessagePump();
 
-		HRESULT WINAPI RegisterAllControls();
-		HRESULT WINAPI RegisterBaseControls();
-		HRESULT WINAPI RegisterBrowserControls();
-		HRESULT WINAPI RegisterCommonControls();
-		HRESULT WINAPI RegisterExtendedControls();
-		HRESULT WINAPI RegisterMacroControls();
-		HRESULT WINAPI RegisterMiscControls();
-		HRESULT WINAPI RegisterStandardControls();
-		HRESULT WINAPI RegisterXControls();
 
-		BOOL WINAPI StartMessagePump();
-		void WINAPI StopMessagePump();
+	ATOM WINAPI StrToID(const WCHAR* resId);
 
-		ATOM WINAPI StrToID(const WCHAR* psz);
-		CHAR* WINAPI UnicodeToMultiByte(const WCHAR* pszUnicode, int cChars, int* pMultiBytes);
-		WCHAR* WINAPI MultiByteToUnicode(const CHAR* pszMulti, int dBytes, int* pUniChars);
 
-		BOOL WINAPI IsAnimationsEnabled();
-		bool WINAPI IsPalette(HWND hwnd);
-		BOOL WINAPI IsUIAutomationProviderEnabled();
-		int WINAPI DUIDrawShadowText(HDC hdc, const WCHAR* pszText, int cch, RECT* prc, DWORD dwFlags, COLORREF crText);
+	int WINAPI UnicodeToMultiByte(const WCHAR* lpWideCharStr, int cchWideChar, int unk);
+	int WINAPI MultiByteToUnicode(LPCSTR lpMultiByteStr, int cbMultiByte, int unk);
 
-		void WINAPI BlurBitmap(UINT* plBitmapBits, int cx, int cy, int cxRow, COLORREF crFill);
-		void WINAPI BlurBitmapNormal(UINT* prgb, int cx, int cy, int cxRow, COLORREF crFill);
+	BOOL WINAPI IsAnimationsEnabled();
+	int WINAPI IsPalette(HWND hWnd);
+	BOOL WINAPI IsUIAutomationProviderEnabled();
 
-		HBRUSH WINAPI BrushFromEnumI(int c);
-		COLORREF WINAPI ColorFromEnumI(int c);
-		COLORREF WINAPI ARGBColorFromEnumI(int c);
+	int WINAPI DUIDrawShadowText(HDC hdcDest, const WCHAR* lpchText, int cchText, LPRECT hdcSrc, UINT format, COLORREF dwTextColor);
 
-		DWORD* WINAPI DisableAnimations();
-		int WINAPI DrawShadowTextEx(HDC hdc, const WCHAR *pszText, int cch, RECT* prc, DWORD dwFlags, COLORREF crText, COLORREF crShadow, int ixOffset, int iyOffset, BYTE bInitialAlpha, BOOL fAPIInit);
-		Element* WINAPI ElementFromGadget(HGADGET hGadget);
-		DWORD* WINAPI EnableAnimations();
-		void WINAPI FlushThemeHandles(WPARAM wParam);
+	int WINAPI BlurBitmap(void*, void*, void*, void*, void*);
 
-		void WINAPI ForceDebugBreak();
+	HBRUSH WINAPI BrushFromEnumI(_In_ int Index);
 
-		IDataEntry* WINAPI GetElementDataEntry(Element* pe);
-		Macro* WINAPI GetElementMacro(Element* pe);
-		void* WINAPI GetFontCache();
+	DWORD WINAPI ColorFromEnumI(_In_ int Index);
 
-		HRESULT WINAPI GetThemeHandle(const WCHAR* pszClass, HTHEME *phTheme);
+	LPVOID WINAPI DisableAnimations();
+	int WINAPI DrawShadowTextEx(HDC hdc, const WCHAR *lpchText, int cchText, LPRECT hdcSrc, UINT format, COLORREF dwTextColor, COLORREF dwBkColor, int a9, int a10, COLORREF a11, int a12);
+	void* WINAPI ElementFromGadget(void*);
+	LPVOID WINAPI EnableAnimations();
+	void WINAPI FlushThemeHandles(unsigned int);
 
-		HRESULT WINAPI HrSysAllocString(const OLECHAR* psz, BSTR* ppbstrOut);
-		HRESULT WINAPI HStrDup(const WCHAR* pszSrc, WCHAR** ppszOut);
+	//此函数仅调用DebugBreak，将程序中断
+	void WINAPI ForceDebugBreak();
 
-		BOOL WINAPI InitPreprocessor();
+	DWORD WINAPI GetElementDataEntry(int a1);
+	Macro* WINAPI GetElementMacro(int a1);
+	LPVOID WINAPI GetFontCache();
 
-		HRESULT WINAPI SetDefAction(Element* pe, DWORD oleacc);
+	HRESULT WINAPI GetThemeHandle(LPCWSTR, void **);
 
-		BOOL WINAPI UiaHideOnGetObject(HWND hwnd, WPARAM wParam, LPARAM lParam);
-		HANDLE WINAPI UiaOnDestroySink(HWND hwnd);
-		HRESULT WINAPI UiaOnGetObject(Element* pe, WPARAM wParam, LPARAM lParam, bool* pfHandled, int* plResult);
-		BOOL WINAPI UiaOnToolTip(Element* pe, DWORD dwFlags);
+	//此函数调用SysAllocString，并返回ppStr
+	HRESULT WINAPI HrSysAllocString(OLECHAR *psz, BSTR* ppStr);
 
-		void WINAPI NotifyAccessibilityEvent(DWORD dwEvent, Element* pe);
-		WCHAR* WINAPI PreprocessBuffer(const WCHAR* pszBuf, UINT cchBuf, bool fInsertMainResId);
-		HBITMAP WINAPI ProcessAlphaBitmapI(HBITMAP hbmSource);
-		void WINAPI PurgeThemeHandles();
+	//此函数用于复制lpString字符串，并返回ppStr
+	HRESULT WINAPI HStrDup(LPCWSTR lpString, LPCWSTR* ppStr);
 
-		HRESULT WINAPI RegisterPVLBehaviorFactory();
-		void WINAPI DUIStopPVLAnimation(Element* peAnimating, UINT nDCProperty, BOOL fFinal);
-		HRESULT WINAPI DuiCreateObject(REFCLSID rclsid, REFIID riid, void** ppv);
+	//此函数是空实现，无任何作用
+	BOOL WINAPI InitPreprocessor();
 
-		UILIB_API float WINAPI GetScaleFactor();
-	}
+	HRESULT WINAPI SetDefAction(Element *a1, _In_  DWORD dwRole);
 
-	inline int RelPixToPixel(int nRelPix)
-	{
-		return (int)floor((GetScaleFactor() * (float)nRelPix) + 0.5f);
-	}
+	BOOL WINAPI UiaHideOnGetObject(_In_ HWND hWnd, int a2, int a3);
 
-	inline int GetPixelHelper(Element* pe, const PropertyInfo* ppi, bool fUseDefault)
-	{
-		CValuePtr spv(pe->GetRawValue(ppi, 2, nullptr));
-		return spv->GetElementScaledInt(pe);
-	}
+	//调用RemoveProp 返回举个句柄
+	HANDLE WINAPI UiaOnDestroySink(_In_ HWND hWnd);
+	HRESULT WINAPI UiaOnGetObject(void* *a1, int a2, InvokeHelper *a3, int a4, int a5);
+	BOOL WINAPI UiaOnToolTip(Element *, DWORD);
+
+	void WINAPI NotifyAccessibilityEvent(DWORD event, Element *);
+	void *WINAPI PreprocessBuffer(LPCWSTR Src, SIZE_T cSrc, BOOLEAN a3);
+	HGDIOBJ WINAPI ProcessAlphaBitmapI(HBITMAP hgdiobj);
+	void WINAPI PurgeThemeHandles();
 }

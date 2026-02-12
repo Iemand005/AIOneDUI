@@ -2,27 +2,29 @@
 
 namespace DirectUI
 {
-	class UILIB_API Bind : public Element
+	class UILIB_API Bind :public Element
 	{
 	public:
-		static HRESULT WINAPI Create(Element* pParent, DWORD* pdwDeferCookie, Element** ppElement);
-		static HRESULT WINAPI Initialize(Element* pParent, DWORD* pdwDeferCookie);
+		Bind(const Bind &);
+		Bind(void);
+		Bind & operator=(const Bind &);
+		virtual ~Bind(void);
 
-		static const PropertyInfo* WINAPI ConnectProp();
-		static const PropertyInfo* WINAPI PropertyProp();
-		const WCHAR* GetConnect(Value** ppv);
-		HRESULT SetConnect(const WCHAR* v);
-		const WCHAR* GetProperty(Value** ppv);
-		HRESULT SetProperty(const WCHAR* v);
+		static const PropertyInfo * __stdcall ConnectProp(void);
+		static long __stdcall Create(Element *, unsigned long *, Element * *);
+		static IClassInfo * __stdcall GetClassInfoPtr(void);
+		static const PropertyInfo * __stdcall PropertyProp(void);
+		static long __stdcall Register(void);
+		static void __stdcall SetClassInfoPtr(IClassInfo *);
 
-		static IClassInfo* WINAPI GetClassInfoPtr();
-		static void WINAPI SetClassInfoPtr(IClassInfo* pClass);
+		virtual IClassInfo * GetClassInfoW(void);
 
+		const WCHAR* GetConnect(Value * *);
+		const WCHAR* GetProperty(Value * *);
+		long Initialize(Element *, unsigned long *);
+		long SetConnect(const WCHAR*);
+		long SetProperty(const WCHAR*);
 	private:
 		static IClassInfo* s_pClassInfo;
-
-	public:
-		IClassInfo* GetClassInfoW() override;
-		static HRESULT WINAPI Register();
 	};
 }

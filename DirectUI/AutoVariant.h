@@ -1,4 +1,5 @@
 #pragma once
+#include "types.h"
 
 namespace DirectUI
 {
@@ -6,6 +7,7 @@ namespace DirectUI
 	{
 	public:
 		AutoVariant();
+		AutoVariant& operator=(const AutoVariant &);
 		~AutoVariant();
 	};
 }
