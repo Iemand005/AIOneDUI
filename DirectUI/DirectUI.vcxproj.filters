@@ -36,7 +36,7 @@
     <ClInclude Include="Element.h">
       <Filter>Headers\DirectUI</Filter>
     </ClInclude>
-    <ClInclude Include="types.h">
+    <ClInclude Include="Types.h">
       <Filter>Headers\DirectUI</Filter>
     </ClInclude>
     <ClInclude Include="base.h">
@@ -49,9 +49,6 @@
       <Filter>Headers\DirectUI</Filter>
     </ClInclude>
     <ClInclude Include="misc.h">
-      <Filter>Headers\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="parser.h">
       <Filter>Headers\DirectUI</Filter>
     </ClInclude>
     <ClInclude Include="provider.h">
@@ -355,6 +352,24 @@
       <Filter>Headers\DirectUI</Filter>
     </ClInclude>
     <ClInclude Include="TouchEdit2.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="DuiProxy.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ElementProvider.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ElementProviderManager.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="RefcountBase.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionProvider.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlParser.h">
       <Filter>Headers\DirectUI</Filter>
     </ClInclude>
   </ItemGroup>

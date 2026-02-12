@@ -18,7 +18,7 @@ namespace DirectUI
 		bool GetOptimizeMove();
 		bool GetTransparent();
 		long GetClientAccessibleImpl(IAccessible**);
-		long SetBackgroundOwnerID(UCString);
+		long SetBackgroundOwnerID(const WCHAR*);
 		long SetOptimizeMove(bool);
 		long SetTransparent(bool);
 

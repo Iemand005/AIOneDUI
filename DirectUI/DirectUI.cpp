@@ -18,7 +18,7 @@ namespace DirectUI
 	// These might be wrong, disassemble and check if it is DirectUI::XProvider* or DirectUI::XProvider**
 	int WINAPI CreateDUIWrapper(Element*, class XProvider**) { return 0 ; }
 	int WINAPI CreateDUIWrapperEx(Element*, class IXProviderCP*, class XProvider**) { return 0 ; }
-	int WINAPI CreateDUIWrapperFromResource(HINSTANCE, UCString, UCString, UCString, class XResourceProvider**) { return 0 ; }
+	int WINAPI CreateDUIWrapperFromResource(HINSTANCE, const WCHAR*, const WCHAR*, const WCHAR*, class XResourceProvider**) { return 0 ; }
 	int WINAPI GetScreenDPI() { return 0 ; }
 	int WINAPI RegisterAllControls() { return 0 ; }
 	int WINAPI RegisterBaseControls() { return 0 ; }
@@ -31,14 +31,14 @@ namespace DirectUI
 	int WINAPI RegisterXControls() { return 0 ; }
 	int WINAPI StartMessagePump() { return 0 ; }
 	int WINAPI StopMessagePump() { return 0 ; }
-	ATOM WINAPI StrToID(UCString resId) { return 0 ; }
-	int WINAPI UnicodeToMultiByte(UCString lpWideCharStr, int cchWideChar, int unk) { return int() ; }
+	ATOM WINAPI StrToID(const WCHAR* resId) { return 0 ; }
+	int WINAPI UnicodeToMultiByte(const WCHAR* lpWideCharStr, int cchWideChar, int unk) { return int() ; }
 	int WINAPI MultiByteToUnicode(LPCSTR lpMultiByteStr, int cbMultiByte, int unk) { return int() ; }
 	
 	BOOL WINAPI IsAnimationsEnabled() { return 0 ; }
 	int WINAPI IsPalette(HWND hWnd) { return 0 ; }
 	BOOL WINAPI IsUIAutomationProviderEnabled() { return 0 ; }
-	int WINAPI DUIDrawShadowText(HDC hdcDest, UCString lpchText, int cchText, LPRECT hdcSrc, UINT format, COLORREF color) { return 0 ; }
+	int WINAPI DUIDrawShadowText(HDC hdcDest, const WCHAR* lpchText, int cchText, LPRECT hdcSrc, UINT format, COLORREF color) { return 0 ; }
 	int WINAPI BlurBitmap(void *, void *, void *, void *, void *) { return 0 ; }
 	HBRUSH WINAPI BrushFromEnumI(int Index) { return HBRUSH() ; }
 	DWORD WINAPI ColorFromEnumI(int Index) { return 0 ; }
@@ -576,46 +576,46 @@ namespace DirectUI
 	DUIXmlParser::~DUIXmlParser() {}
 	DUIXmlParser & DUIXmlParser::operator=(const DUIXmlParser &){ return*this ; }
 	long DUIXmlParser::Create(DUIXmlParser**, GetSheetCallback, void* sheetParam, ParseErrorCallback, void* parseErrorParam) { return 0 ; }
-	long DUIXmlParser::CreateElement(UCString, Element*, Element*, unsigned long*, Element** out) { return 0 ; }
+	long DUIXmlParser::CreateElement(const WCHAR*, Element*, Element*, unsigned long*, Element** out) { return 0 ; }
 	void DUIXmlParser::Destroy() {}
 	void DUIXmlParser::EnableDesignMode() {}
 	GetSheetCallback DUIXmlParser::GetGetSheetCallback() { return GetSheetCallback() ; }
 	HINSTANCE DUIXmlParser::GetHInstance() { return HINSTANCE() ; }
 	HINSTANCE DUIXmlParser::GetResourceHInstance() { return HINSTANCE() ; }
-	long DUIXmlParser::GetSheet(UCString, Value**) { return 0 ; }
+	long DUIXmlParser::GetSheet(const WCHAR*, Value**) { return 0 ; }
 	void* DUIXmlParser::GetSheetContext() { return nullptr ; }
-	long DUIXmlParser::LookupElement(IXmlReader*, UCString, HINSTANCE, IClassInfo**) { return 0 ; }
-	long DUIXmlParser::LookupElement(LINEINFO, UCString, HINSTANCE, IClassInfo**) { return 0 ; }
+	long DUIXmlParser::LookupElement(IXmlReader*, const WCHAR*, HINSTANCE, IClassInfo**) { return 0 ; }
+	long DUIXmlParser::LookupElement(LINEINFO, const WCHAR*, HINSTANCE, IClassInfo**) { return 0 ; }
 	void DUIXmlParser::SetDefaultHInstance(HINSTANCE) {}
 	void DUIXmlParser::SetGetSheetCallback(GetSheetCallback,void*) {}
 	void DUIXmlParser::SetParseErrorCallback(ParseErrorCallback, void*) {}
-	void DUIXmlParser::SetUnknownAttrCallback(bool(WINAPI *)(UCString, void*), void*){}
-	long DUIXmlParser::SetPreprocessedXML(UCString, HINSTANCE, HINSTANCE) { return 0 ; }
+	void DUIXmlParser::SetUnknownAttrCallback(bool(WINAPI *)(const WCHAR*, void*), void*){}
+	long DUIXmlParser::SetPreprocessedXML(const WCHAR*, HINSTANCE, HINSTANCE) { return 0 ; }
 	void DUIXmlParser::SetUnavailableIcon(HICON) {}
-	long DUIXmlParser::SetXML(UCString, HINSTANCE, HINSTANCE) { return 0 ; }
+	long DUIXmlParser::SetXML(const WCHAR*, HINSTANCE, HINSTANCE) { return 0 ; }
 	long DUIXmlParser::SetXMLFromResource(unsigned int, HINSTANCE, HINSTANCE) { return 0 ; }
-	long DUIXmlParser::SetXMLFromResource(UCString, HINSTANCE, HINSTANCE) { return 0 ; }
+	long DUIXmlParser::SetXMLFromResource(const WCHAR*, HINSTANCE, HINSTANCE) { return 0 ; }
 	long DUIXmlParser::UpdateSheets(Element*) { return 0 ; }
 	void DUIXmlParser::_DestroyTables() {}
 	long DUIXmlParser::_InitializeTables() { return 0 ; }
 	long DUIXmlParser::_EnterOnCurrentThread() { return 0 ; }
 	LINEINFO DUIXmlParser::_GetLineInfo(IXmlReader*) { return LINEINFO() ; }
-	long DUIXmlParser::AddRulesToStyleSheet(IXmlReader*, StyleSheet*, UCString, DynamicArray<XMLParserCond, 0>*, DynamicArray<UString, 0>*) { return 0 ; }
+	long DUIXmlParser::AddRulesToStyleSheet(IXmlReader*, StyleSheet*, const WCHAR*, DynamicArray<XMLParserCond, 0>*, DynamicArray<UString, 0>*) { return 0 ; }
 	long DUIXmlParser::CreateLayout(const ParserTools::ExprNode*, long(WINAPI*)(int, int*, Value**)){ return 0 ; }
-	long DUIXmlParser::CreateStyleSheet(IXmlReader*, UCString, StyleSheet**) { return 0 ; }
+	long DUIXmlParser::CreateStyleSheet(IXmlReader*, const WCHAR*, StyleSheet**) { return 0 ; }
 	long DUIXmlParser::CreateXmlReader(IXmlReader**) { return 0 ; }
 	long DUIXmlParser::CreateXmlReaderFromHGLOBAL(void*, IXmlReader**) { return 0 ; }
-	long DUIXmlParser::CreateXmlReaderInputWithEncodingName(IStream*, UCString, IUnknown**) { return 0 ; }
+	long DUIXmlParser::CreateXmlReaderInputWithEncodingName(IStream*, const WCHAR*, IUnknown**) { return 0 ; }
 	long DUIXmlParser::GetParserCommon(DUIXmlParser**) { return 0 ; }
-	long DUIXmlParser::GetPropValPairInfo(IXmlReader*, IClassInfo*, UCString, UCString, PropertyInfo const**, Value**) { return 0 ; }
-	long DUIXmlParser::GetPropValPairInfo(LINEINFO, IClassInfo*, UCString, UCString, PropertyInfo const**, Value**) { return 0 ; }
+	long DUIXmlParser::GetPropValPairInfo(IXmlReader*, IClassInfo*, const WCHAR*, const WCHAR*, PropertyInfo const**, Value**) { return 0 ; }
+	long DUIXmlParser::GetPropValPairInfo(LINEINFO, IClassInfo*, const WCHAR*, const WCHAR*, PropertyInfo const**, Value**) { return 0 ; }
 	long DUIXmlParser::GetValueParser(ParserTools::ValueParser**) { return 0 ; }
 	long WINAPI DUIXmlParser::GetXmlLiteDll(HINSTANCE*) { return 0 ; }
 	long DUIXmlParser::Initialize() { return 0 ; }
 	long DUIXmlParser::InitializeParserFromXmlLiteReader(IXmlReader*) { return 0 ; }
 	bool WINAPI DUIXmlParser::IsThemeClassName(const ParserTools::ExprNode*) { return false ; }
-	long DUIXmlParser::MapPropertyEnumValue(const EnumMap*, UCString, int*) { return 0 ; }
-	long DUIXmlParser::MapPropertyNameToPropertyInfo(LINEINFO, IClassInfo*, UCString, const PropertyInfo**) { return 0 ; }
+	long DUIXmlParser::MapPropertyEnumValue(const EnumMap*, const WCHAR*, int*) { return 0 ; }
+	long DUIXmlParser::MapPropertyNameToPropertyInfo(LINEINFO, IClassInfo*, const WCHAR*, const PropertyInfo**) { return 0 ; }
 	long DUIXmlParser::ParseARGBColor(const ParserTools::ExprNode*, unsigned long*) { return 0 ; }
 	long DUIXmlParser::ParseArgs(const ParserTools::ExprNode*, ParsedArg*, unsigned int, const char*) { return 0 ; }
 	long DUIXmlParser::ParseAtomValue(const ParserTools::ExprNode*, Value**) { return 0 ; }
@@ -624,7 +624,7 @@ namespace DirectUI
 	long DUIXmlParser::ParseDFCFill(const ParserTools::ExprNode*, Value**) { return 0 ; }
 	long DUIXmlParser::ParseDTBFill(const ParserTools::ExprNode*, Value**) { return 0 ; }
 	long DUIXmlParser::ParseFillValue(const ParserTools::ExprNode*, Value**) { return 0 ; }
-	long DUIXmlParser::ParseFunction(UCString, const ParserTools::ExprNode*, ParsedArg*, unsigned int, const char*) { return 0 ; }
+	long DUIXmlParser::ParseFunction(const WCHAR*, const ParserTools::ExprNode*, ParsedArg*, unsigned int, const char*) { return 0 ; }
 	long DUIXmlParser::ParseGTCColor(const ParserTools::ExprNode*, unsigned long*) { return 0 ; }
 	long DUIXmlParser::ParseGTFStr(const ParserTools::ExprNode*, Value**) { return 0 ; }
 	long DUIXmlParser::ParseGTMarRect(const ParserTools::ExprNode*, LPRECT) { return 0 ; }
@@ -638,20 +638,20 @@ namespace DirectUI
 	long DUIXmlParser::ParseIntValue(const ParserTools::ExprNode*, Value**) { return 0 ; }
 	long DUIXmlParser::ParseLayoutValue(const ParserTools::ExprNode*) { return 0 ; }
 	long DUIXmlParser::ParseLibrary(const ParserTools::ExprNode*, HINSTANCE*) { return 0 ; }
-	long DUIXmlParser::ParseLiteral(const ParserTools::ExprNode*, UCString*) { return 0 ; }
-	long DUIXmlParser::ParseLiteralColor(UCString, unsigned long*) { return 0 ; }
-	long DUIXmlParser::ParseLiteralColorInt(UCString, int*) { return 0 ; }
-	long DUIXmlParser::ParseLiteralNumber(UCString, int*) { return 0 ; }
-	long DUIXmlParser::ParseMagnitude(UCString, int*) { return 0 ; }
+	long DUIXmlParser::ParseLiteral(const ParserTools::ExprNode*, const WCHAR**) { return 0 ; }
+	long DUIXmlParser::ParseLiteralColor(const WCHAR*, unsigned long*) { return 0 ; }
+	long DUIXmlParser::ParseLiteralColorInt(const WCHAR*, int*) { return 0 ; }
+	long DUIXmlParser::ParseLiteralNumber(const WCHAR*, int*) { return 0 ; }
+	long DUIXmlParser::ParseMagnitude(const WCHAR*, int*) { return 0 ; }
 	long DUIXmlParser::ParseNumber(const ParserTools::ExprNode*, int*) { return 0 ; }
 	long DUIXmlParser::ParsePointValue(const ParserTools::ExprNode*, Value**) { return 0 ; }
-	long DUIXmlParser::ParseQuotedString(const ParserTools::ExprNode*, UCString*) { return 0 ; }
+	long DUIXmlParser::ParseQuotedString(const ParserTools::ExprNode*, const WCHAR**) { return 0 ; }
 	long DUIXmlParser::ParseRGBColor(const ParserTools::ExprNode*, unsigned long*) { return 0 ; }
 	long DUIXmlParser::ParseRect(const ParserTools::ExprNode*, LPRECT) { return 0 ; }
 	long DUIXmlParser::ParseRectRect(const ParserTools::ExprNode*, LPRECT) { return 0 ; }
 	long DUIXmlParser::ParseRectValue(const ParserTools::ExprNode*, Value**) { return 0 ; }
 	long DUIXmlParser::ParseResStr(const ParserTools::ExprNode*, Value**) { return 0 ; }
-	long DUIXmlParser::ParseResid(const ParserTools::ExprNode*, UCString*) { return 0 ; }
+	long DUIXmlParser::ParseResid(const ParserTools::ExprNode*, const WCHAR**) { return 0 ; }
 	long DUIXmlParser::ParseSGraphicGraphic(const ParserTools::ExprNode*, Value**) { return 0 ; }
 	long DUIXmlParser::ParseSGraphicHelper(bool, const ParserTools::ExprNode*, Value**) { return 0 ; }
 	long DUIXmlParser::ParseSizeValue(const ParserTools::ExprNode*, Value**) { return 0 ; }
@@ -661,18 +661,18 @@ namespace DirectUI
 	long DUIXmlParser::ParseSysMetricStr(const ParserTools::ExprNode*, Value**) { return 0 ; }
 	long DUIXmlParser::ParseTheme(const ParserTools::ExprNode*, void**) { return 0 ; }
 	int WINAPI DUIXmlParser::QuerySysMetric(int) { return 0 ; }
-	UCString WINAPI DUIXmlParser::QuerySysMetricStr(int, UString, unsigned int) { return UString() ; }
+	const WCHAR* WINAPI DUIXmlParser::QuerySysMetricStr(int, UString, unsigned int) { return UString() ; }
 	void DUIXmlParser::ReturnValueParser(ParserTools::ValueParser*) {}
-	void DUIXmlParser::SendParseError(UCString, UCString, int, int, long) {}
-	void DUIXmlParser::SendParseError(UCString, UCString, IXmlReader*, long) {}
+	void DUIXmlParser::SendParseError(const WCHAR*, const WCHAR*, int, int, long) {}
+	void DUIXmlParser::SendParseError(const WCHAR*, const WCHAR*, IXmlReader*, long) {}
 	void DUIXmlParser::_LeaveOnCurrentThread() {}
-	long DUIXmlParser::_RecordElementLayout(IXmlReader*, UCString) { return 0 ; }
-	long DUIXmlParser::_RecordElementStyleSheet(UCString, bool) { return 0 ; }
+	long DUIXmlParser::_RecordElementLayout(IXmlReader*, const WCHAR*) { return 0 ; }
+	long DUIXmlParser::_RecordElementStyleSheet(const WCHAR*, bool) { return 0 ; }
 	long DUIXmlParser::_RecordElementTrees(IXmlReader*) { return 0 ; }
 	long DUIXmlParser::_RecordElementWithChildren(IXmlReader*, bool, UString*) { return 0 ; }
 	long DUIXmlParser::_RecordInstantiateElement(IXmlReader*, UString*) { return 0 ; }
 	long DUIXmlParser::_RecordSetElementProperties(IXmlReader*) { return 0 ; }
-	long DUIXmlParser::_RecordSetValue(IXmlReader*, UCString, UCString) { return 0 ; }
+	long DUIXmlParser::_RecordSetValue(IXmlReader*, const WCHAR*, const WCHAR*) { return 0 ; }
 	void DUIXmlParser::SetParseState(_DUI_PARSE_STATE) {}
 	template<typename T>
 	DUIXmlParser::FunctionDefinition<T> & DUIXmlParser::FunctionDefinition<T>::operator=(const DUIXmlParser::FunctionDefinition<T> &){ return *this ; }
@@ -689,20 +689,20 @@ namespace DirectUI
 	LRESULT NativeHWNDHost::WndProc(HWND, UINT, WPARAM, LPARAM) { return LRESULT() ; }
 	NativeHWNDHost & NativeHWNDHost::operator=(const NativeHWNDHost &){ return*this ; }
 	UINT WINAPI NativeHWNDHost::AsyncDestroyMsg() { return 0 ; }
-	HRESULT NativeHWNDHost::Create(UCString lpClassName, UCString lpWindowName, HWND hWndParent, HICON hIcon, int x, int y, int nWidth, int nHeight, int dwExStyle, int dwStyle, HINSTANCE, UINT, NativeHWNDHost** out) { return E_NOTIMPL ; }
-	HRESULT NativeHWNDHost::Create(UCString lpWindowName, HWND hWndParent, HICON hIcon, int x, int y, int nWidth, int nHeight, int dwExStyle, int dwStyle, unsigned int, NativeHWNDHost** out) { return E_NOTIMPL ; }
+	HRESULT NativeHWNDHost::Create(const WCHAR* lpClassName, const WCHAR* lpWindowName, HWND hWndParent, HICON hIcon, int x, int y, int nWidth, int nHeight, int dwExStyle, int dwStyle, HINSTANCE, UINT, NativeHWNDHost** out) { return E_NOTIMPL ; }
+	HRESULT NativeHWNDHost::Create(const WCHAR* lpWindowName, HWND hWndParent, HICON hIcon, int x, int y, int nWidth, int nHeight, int dwExStyle, int dwStyle, unsigned int, NativeHWNDHost** out) { return E_NOTIMPL ; }
 	void NativeHWNDHost::Destroy() {}
 	void NativeHWNDHost::DestroyWindow() {}
 	Element* NativeHWNDHost::GetElement() { return nullptr ; }
 	HWND NativeHWNDHost::GetHWND() { return HWND() ; }
 	void NativeHWNDHost::HideWindow() {}
 	void NativeHWNDHost::Host(Element*) {}
-	HRESULT NativeHWNDHost::Initialize(UCString lpClassName, UCString lpWindowName, HWND hWndParent, HICON hIcon, int x, int y, int nWidth, int nHeight, int dwExStyle, int dwStyle, HINSTANCE, UINT) { return E_NOTIMPL ; }
-	HRESULT NativeHWNDHost::Initialize(UCString, HWND, HICON, int, int, int, int, int, int, UINT) { return E_NOTIMPL ; }
+	HRESULT NativeHWNDHost::Initialize(const WCHAR* lpClassName, const WCHAR* lpWindowName, HWND hWndParent, HICON hIcon, int x, int y, int nWidth, int nHeight, int dwExStyle, int dwStyle, HINSTANCE, UINT) { return E_NOTIMPL ; }
+	HRESULT NativeHWNDHost::Initialize(const WCHAR*, HWND, HICON, int, int, int, int, int, int, UINT) { return E_NOTIMPL ; }
 	HRESULT NativeHWNDHost::OnMessage(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT*) { return E_NOTIMPL ; }
 	int NativeHWNDHost::RestoreFocus() { return 0 ; }
 	void NativeHWNDHost::SaveFocus() {}
-	void NativeHWNDHost::SetDefaultFocusID(UCString) {}
+	void NativeHWNDHost::SetDefaultFocusID(const WCHAR*) {}
 	void NativeHWNDHost::ShowWindow(int) {}
 	HWNDHostAccessible::HWNDHostAccessible() {}
 	HWNDHostAccessible::~HWNDHostAccessible() {}
@@ -970,8 +970,8 @@ namespace DirectUI
 	{ return 0 ; }
 	unsigned int ClassInfoBase::GetGlobalIndex() const
 	{ return 0 ; }
-	UCString ClassInfoBase::GetName() const
-	{ return UCString() ; }
+	const WCHAR* ClassInfoBase::GetName() const
+	{ return const WCHAR*() ; }
 	bool ClassInfoBase::IsValidProperty(const PropertyInfo *) const
 	{ return false ; }
 	bool ClassInfoBase::IsSubclassOf(IClassInfo *) const
@@ -987,8 +987,8 @@ namespace DirectUI
 	{ return 0 ; }
 	void ClassInfoBase::AssertPIZeroRef() const
 	{}
-	bool WINAPI ClassInfoBase::ClassExist(IClassInfo **, const PropertyInfo * const *, unsigned int, IClassInfo *, HINSTANCE, UCString, bool) { return false ; }
-	long ClassInfoBase::Initialize(HINSTANCE, UCString, bool, const PropertyInfo * const *, unsigned int) { return 0 ; }
+	bool WINAPI ClassInfoBase::ClassExist(IClassInfo **, const PropertyInfo * const *, unsigned int, IClassInfo *, HINSTANCE, const WCHAR*, bool) { return false ; }
+	long ClassInfoBase::Initialize(HINSTANCE, const WCHAR*, bool, const PropertyInfo * const *, unsigned int) { return 0 ; }
 	long ClassInfoBase::Register() { return 0 ; }
 	BaseScrollBar::BaseScrollBar(BaseScrollBar const &) {}
 	BaseScrollBar::BaseScrollBar() {}
@@ -1065,11 +1065,11 @@ namespace DirectUI
 	long Bind::Register(void) { return 0 ; }
 	void Bind::SetClassInfoPtr(IClassInfo *) {}
 	IClassInfo * Bind::GetClassInfoW(void) { return nullptr ; }
-	UCString Bind::GetConnect(Value **) { return UCString() ; }
-	UCString Bind::GetProperty(Value **) { return UCString() ; }
+	const WCHAR* Bind::GetConnect(Value **) { return const WCHAR*() ; }
+	const WCHAR* Bind::GetProperty(Value **) { return const WCHAR*() ; }
 	long Bind::Initialize(Element *, unsigned long *) { return 0 ; }
-	long Bind::SetConnect(UCString) { return 0 ; }
-	long Bind::SetProperty(UCString) { return 0 ; }
+	long Bind::SetConnect(const WCHAR*) { return 0 ; }
+	long Bind::SetProperty(const WCHAR*) { return 0 ; }
 	IClassInfo* Bind::s_pClassInfo;
 	Browser::Browser(const Browser &) {}
 	Browser::Browser(void) {}
@@ -1136,7 +1136,7 @@ namespace DirectUI
 	IClassInfo * CCAVI::s_pClassInfo;
 
 	CCBase::CCBase(const CCBase &) {}
-	CCBase::CCBase(unsigned long, UCString) {}
+	CCBase::CCBase(unsigned long, const WCHAR*) {}
 	CCBase & CCBase::operator=(const CCBase &){ return *this ; }
 	CCBase::~CCBase(void) {}
 	long CCBase::Create(unsigned int, Element *, unsigned long *, Element **) { return 0 ; }
@@ -1233,8 +1233,8 @@ namespace DirectUI
 	long CCCommandLink::Register(void) { return 0 ; }
 	void CCCommandLink::SetClassInfoPtr(IClassInfo *) {}
 	PropertyInfo const * CCCommandLink::NoteProp(void) { return nullptr ; }
-	UCString CCCommandLink::GetNote(Value **) { return UCString() ; }
-	long CCCommandLink::SetNote(UCString) { return 0 ; }
+	const WCHAR* CCCommandLink::GetNote(Value **) { return const WCHAR*() ; }
+	long CCCommandLink::SetNote(const WCHAR*) { return 0 ; }
 	IClassInfo * CCCommandLink::GetClassInfoW(void) { return nullptr ; }
 	SIZE CCCommandLink::GetContentSize(int, int, Surface *) { return SIZE() ; }
 	void CCCommandLink::OnPropertyChanged(PropertyInfo const *, int, Value *, Value *) {}
@@ -1800,7 +1800,7 @@ namespace DirectUI
 	bool HWNDHost::GetOptimizeMove() { return false ; }
 	bool HWNDHost::GetTransparent() { return false ; }
 	long HWNDHost::GetClientAccessibleImpl(IAccessible **) { return 0 ; }
-	long HWNDHost::SetBackgroundOwnerID(UCString) { return 0 ; }
+	long HWNDHost::SetBackgroundOwnerID(const WCHAR*) { return 0 ; }
 	long HWNDHost::SetOptimizeMove(bool) { return 0 ; }
 	long HWNDHost::SetTransparent(bool) { return 0 ; }
 	long WINAPI HWNDHost::Create(unsigned int, unsigned int, Element *, unsigned long *, Element ** pOut) { return 0 ; }
@@ -2016,12 +2016,12 @@ namespace DirectUI
 	int Movie::GetCompositingQuality() { return 0 ; }
 	bool Movie::GetDrawOutlines() { return false ; }
 	int Movie::GetInterpolationMode() { return 0 ; }
-	UCString Movie::GetPath(Value **) { return UCString() ; }
+	const WCHAR* Movie::GetPath(Value **) { return const WCHAR*() ; }
 	int Movie::GetPixelOffsetMode() { return 0 ; }
 	bool Movie::GetPlayAllFramesMode() { return false ; }
 	bool Movie::GetRepeat() { return false ; }
 	int Movie::GetSmoothingMode() { return 0 ; }
-	HRESULT Movie::LoadFromPath(UCString) { return E_NOTIMPL ; }
+	HRESULT Movie::LoadFromPath(const WCHAR*) { return E_NOTIMPL ; }
 	HRESULT Movie::LoadFromResource(HINSTANCE, int) { return E_NOTIMPL ; }
 	void Movie::Pause() {}
 	void Movie::Play() {}
@@ -2032,7 +2032,7 @@ namespace DirectUI
 	long Movie::SetCompositingQuality(int) { return 0 ; }
 	long Movie::SetDrawOutlines(bool) { return 0 ; }
 	long Movie::SetInterpolationMode(int) { return 0 ; }
-	long Movie::SetPath(UCString) { return 0 ; }
+	long Movie::SetPath(const WCHAR*) { return 0 ; }
 	long Movie::SetPixelOffsetMode(int) { return 0 ; }
 	long Movie::SetPlayAllFramesMode(bool) { return 0 ; }
 	long Movie::SetRepeat(bool) { return 0 ; }
@@ -2393,8 +2393,8 @@ namespace DirectUI
 	XResourceProvider::XResourceProvider(const XResourceProvider &) {}
 	XResourceProvider & XResourceProvider::operator=(const XResourceProvider &){ return *this ; }
 	long WINAPI XResourceProvider::Create(XResourceProvider ** pOut) { return 0 ; }
-	long WINAPI XResourceProvider::Create(HINSTANCE, UCString, UCString, UCString, XResourceProvider ** pOut) { return 0 ; }
-	long XResourceProvider::Initialize(HINSTANCE h, UCString s1, UCString s2, UCString s3) { return 0 ; }
+	long WINAPI XResourceProvider::Create(HINSTANCE, const WCHAR*, const WCHAR*, const WCHAR*, XResourceProvider ** pOut) { return 0 ; }
+	long XResourceProvider::Initialize(HINSTANCE h, const WCHAR* s1, const WCHAR* s2, const WCHAR* s3) { return 0 ; }
 	long XResourceProvider::CreateDUICP(HWNDElement *, HWND, HWND, Element **, DUIXmlParser **) { return 0 ; }
 	long XResourceProvider::CreateParserCP(DUIXmlParser ** pOut) { return 0 ; }
 	void XResourceProvider::DestroyCP() {}
@@ -2848,31 +2848,31 @@ namespace DirectUI
 	Value & Value::operator=(const Value &){ return *this ; }
 	void Value::AddRef() {}
 	Value * WINAPI Value::CreateAtom(unsigned short) { return nullptr ; }
-	Value * WINAPI Value::CreateAtom(UCString) { return nullptr ; }
+	Value * WINAPI Value::CreateAtom(const WCHAR*) { return nullptr ; }
 	Value * WINAPI Value::CreateBool(bool) { return nullptr ; }
 	Value * WINAPI Value::CreateColor(unsigned long) { return nullptr ; }
 	Value * WINAPI Value::CreateColor(unsigned long, unsigned long, unsigned char) { return nullptr ; }
 	Value * WINAPI Value::CreateColor(unsigned long, unsigned long, unsigned long, unsigned char) { return nullptr ; }
 	Value * WINAPI Value::CreateCursor(HICON) { return nullptr ; }
-	Value * WINAPI Value::CreateCursor(UCString) { return nullptr ; }
+	Value * WINAPI Value::CreateCursor(const WCHAR*) { return nullptr ; }
 	Value * Value::CreateDFCFill(unsigned int, unsigned int) { return nullptr ; }
-	Value * WINAPI Value::CreateDTBFill(UCString, int, int) { return nullptr ; }
+	Value * WINAPI Value::CreateDTBFill(const WCHAR*, int, int) { return nullptr ; }
 	Value * WINAPI Value::CreateElementList(DynamicArray<class Element*, 0>*) { return nullptr ; }
 	Value * WINAPI Value::CreateElementRef(Element *) { return nullptr ; }
-	Value * WINAPI Value::CreateEncodedString(UCString) { return nullptr ; }
+	Value * WINAPI Value::CreateEncodedString(const WCHAR*) { return nullptr ; }
 	Value * WINAPI Value::CreateExpression(Expression *) { return nullptr ; }
 	Value * WINAPI Value::CreateFill(const Fill &) { return nullptr ; }
 	Value * WINAPI Value::CreateGraphic(HBITMAP, unsigned char, unsigned int, bool, bool, bool) { return nullptr ; }
 	Value * WINAPI Value::CreateGraphic(HENHMETAFILE, HENHMETAFILE) { return nullptr ; }
 	Value * WINAPI Value::CreateGraphic(HICON, bool, bool, bool) { return nullptr ; }
-	Value * WINAPI Value::CreateGraphic(UCString, unsigned char, unsigned int, unsigned short, unsigned short, HINSTANCE, bool, bool) { return nullptr ; }
-	Value * WINAPI Value::CreateGraphic(UCString, unsigned short, unsigned short, HINSTANCE, bool, bool) { return nullptr ; }
+	Value * WINAPI Value::CreateGraphic(const WCHAR*, unsigned char, unsigned int, unsigned short, unsigned short, HINSTANCE, bool, bool) { return nullptr ; }
+	Value * WINAPI Value::CreateGraphic(const WCHAR*, unsigned short, unsigned short, HINSTANCE, bool, bool) { return nullptr ; }
 	Value * WINAPI Value::CreateInt(int) { return nullptr ; }
 	Value * WINAPI Value::CreateLayout(Layout *) { return nullptr ; }
 	Value * WINAPI Value::CreatePoint(int, int) { return nullptr ; }
 	Value * WINAPI Value::CreateRect(int, int, int, int) { return nullptr ; }
 	Value * WINAPI Value::CreateSize(int, int) { return nullptr ; }
-	Value * WINAPI Value::CreateString(UCString, HINSTANCE) { return nullptr ; }
+	Value * WINAPI Value::CreateString(const WCHAR*, HINSTANCE) { return nullptr ; }
 	Value * WINAPI Value::CreateStyleSheet(StyleSheet *) { return nullptr ; }
 	bool Value::GetBool() { return false ; }
 	Cursor * Value::GetCursor() { return nullptr ; }
@@ -2889,7 +2889,7 @@ namespace DirectUI
 	int Value::GetRefCount() const
 	{ return 0 ; }
 	SIZE const * Value::GetSize() { return LPSIZE() ; }
-	UCString Value::GetString() { return UCString() ; }
+	const WCHAR* Value::GetString() { return const WCHAR*() ; }
 	StyleSheet * Value::GetStyleSheet() { return nullptr ; }
 	int Value::GetType() const
 	{ return 0 ; }
@@ -2917,7 +2917,7 @@ namespace DirectUI
 	UString Value::ToString(UString, unsigned int) const
 	{ return UString() ; }
 	void Value::_ZeroRelease() {}
-	long WINAPI Value::StrDupW(UCString, UString *) { return 0 ; }
+	long WINAPI Value::StrDupW(const WCHAR*, UString *) { return 0 ; }
 	ValueProvider::ValueProvider() {}
 	ValueProvider::~ValueProvider(void) {}
 	unsigned long ValueProvider::AddRef(void) { return 0 ; }
@@ -3122,7 +3122,7 @@ namespace DirectUI
 	long ElementProxy::GetRuntimeId(SAFEARRAY * *) { return 0 ; }
 	long ElementProxy::IsPatternSupported(Schema::Pattern, bool *) { return 0 ; }
 	long ElementProxy::Navigate(NavigateDirection, IRawElementProviderFragment**) { return 0 ; }
-	long ElementProxy::SetString(VARIANT *, UCString(Element::*)(Value * *)){ return 0 ; }
+	long ElementProxy::SetString(VARIANT *, const WCHAR*(Element::*)(Value * *)){ return 0 ; }
 	int ElementProxy::_UsesUIAProxies(void) { return 0 ; }
 	//2
 	void ElementProxy::Init(Element *) {}
@@ -3142,11 +3142,11 @@ namespace DirectUI
 	long DUIFactory::CreateParser(void) { return 0 ; }
 	DUIXmlParser * DUIFactory::DetachParser(void) { return nullptr ; }
 	DUIXmlParser * DUIFactory::GetParser(void) { return nullptr ; }
-	long DUIFactory::LoadFromBuffer(UCString, UINT_PTR, UCString, Element *, unsigned long *, Element **) { return 0 ; }
-	long DUIFactory::LoadFromFile(UCString, UCString, Element *, unsigned long *, Element **) { return 0 ; }
-	long DUIFactory::LoadFromResource(HINSTANCE, UCString, UCString, Element *, unsigned long *, Element **, UCString) { return 0 ; }
-	void DUIFactory::SetError(UCString, ...) {}
-	void DUIFactory::s_XMLParseError(UCString, UCString, int, void *) {}
+	long DUIFactory::LoadFromBuffer(const WCHAR*, UINT_PTR, const WCHAR*, Element *, unsigned long *, Element **) { return 0 ; }
+	long DUIFactory::LoadFromFile(const WCHAR*, const WCHAR*, Element *, unsigned long *, Element **) { return 0 ; }
+	long DUIFactory::LoadFromResource(HINSTANCE, const WCHAR*, const WCHAR*, Element *, unsigned long *, Element **, const WCHAR*) { return 0 ; }
+	void DUIFactory::SetError(const WCHAR*, ...) {}
+	void DUIFactory::s_XMLParseError(const WCHAR*, const WCHAR*, int, void *) {}
 	void DUIFactory::ClearParser(void) {}
 	BrowserSelectionProxy::BrowserSelectionProxy(BrowserSelectionProxy const &) {}
 	BrowserSelectionProxy::BrowserSelectionProxy(void) {}

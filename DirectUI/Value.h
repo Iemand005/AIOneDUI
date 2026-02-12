@@ -33,31 +33,31 @@ namespace DirectUI
 		void AddRef();
 
 		static Value* WINAPI CreateAtom(unsigned short);
-		static Value* WINAPI CreateAtom(UCString);
+		static Value* WINAPI CreateAtom(const WCHAR*);
 		static Value* WINAPI CreateBool(bool);
 		static Value* WINAPI CreateColor(unsigned long);
 		static Value* WINAPI CreateColor(unsigned long, unsigned long, unsigned char);
 		static Value* WINAPI CreateColor(unsigned long, unsigned long, unsigned long, unsigned char);
 		static Value* WINAPI CreateCursor(HICON);
-		static Value* WINAPI CreateCursor(UCString);
+		static Value* WINAPI CreateCursor(const WCHAR*);
 		static Value* WINAPI CreateDFCFill(unsigned int, unsigned int);
-		static Value* WINAPI CreateDTBFill(UCString, int, int);
+		static Value* WINAPI CreateDTBFill(const WCHAR*, int, int);
 		static Value* WINAPI CreateElementList(DynamicArray<class Element*, 0>*);
 		static Value* WINAPI CreateElementRef(class Element*);
-		static Value* WINAPI CreateEncodedString(UCString);
+		static Value* WINAPI CreateEncodedString(const WCHAR*);
 		static Value* WINAPI CreateExpression(Expression*);
 		static Value* WINAPI CreateFill(const struct Fill &);
 		static Value* WINAPI CreateGraphic(HBITMAP, unsigned char, unsigned int, bool, bool, bool);
 		static Value* WINAPI CreateGraphic(HENHMETAFILE, HENHMETAFILE);
 		static Value* WINAPI CreateGraphic(HICON, bool, bool, bool);
-		static Value* WINAPI CreateGraphic(UCString, unsigned char, unsigned int, unsigned short, unsigned short, HINSTANCE, bool, bool);
-		static Value* WINAPI CreateGraphic(UCString, unsigned short, unsigned short, HINSTANCE, bool, bool);
+		static Value* WINAPI CreateGraphic(const WCHAR*, unsigned char, unsigned int, unsigned short, unsigned short, HINSTANCE, bool, bool);
+		static Value* WINAPI CreateGraphic(const WCHAR*, unsigned short, unsigned short, HINSTANCE, bool, bool);
 		static Value* WINAPI CreateInt(int);
 		static Value* WINAPI CreateLayout(class Layout*);
 		static Value* WINAPI CreatePoint(int, int);
 		static Value* WINAPI CreateRect(int, int, int, int);
 		static Value* WINAPI CreateSize(int, int);
-		static Value* WINAPI CreateString(UCString, HINSTANCE);
+		static Value* WINAPI CreateString(const WCHAR*, HINSTANCE);
 		static Value* WINAPI CreateStyleSheet(StyleSheet*);
 
 		bool GetBool();
@@ -74,7 +74,7 @@ namespace DirectUI
 		RECT const * GetRect();
 		int GetRefCount() const;
 		SIZE const * GetSize();
-		UCString GetString();
+		const WCHAR* GetString();
 		StyleSheet* GetStyleSheet();
 		int GetType() const;
 
@@ -103,7 +103,7 @@ namespace DirectUI
 		UString ToString(UString, unsigned int) const;
 	private:
 		void _ZeroRelease();
-		static long WINAPI StrDupW(UCString, UString*);
+		static long WINAPI StrDupW(const WCHAR*, UString*);
 	};
 
 	class UILIB_API ValueProvider 

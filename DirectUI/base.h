@@ -30,7 +30,7 @@ namespace DirectUI
 		virtual IClassInfo* WINAPI GetBaseClass() = 0;
 
 		//6
-		virtual UCString GetName() const;
+		virtual const WCHAR* GetName() const;
 		//7
 		virtual bool IsValidProperty(const PropertyInfo*) const;
 		//8
@@ -53,8 +53,8 @@ namespace DirectUI
 
 		virtual ~ClassInfoBase();
 
-		static bool WINAPI ClassExist(IClassInfo**, const PropertyInfo* const*, unsigned int, IClassInfo*, HINSTANCE, UCString, bool);
-		long Initialize(HINSTANCE, UCString, bool, const PropertyInfo* const*, unsigned int);
+		static bool WINAPI ClassExist(IClassInfo**, const PropertyInfo* const*, unsigned int, IClassInfo*, HINSTANCE, const WCHAR*, bool);
+		long Initialize(HINSTANCE, const WCHAR*, bool, const PropertyInfo* const*, unsigned int);
 		long Register();
 	};
 

@@ -18,7 +18,9 @@
 #define UILIB_API __declspec(dllimport)
 #endif
 
-#include "types.h"
+#include <DUser.h>
+
+#include "Types.h"
 #include "misc.h"
 #include "Interfaces.h"
 
@@ -26,10 +28,24 @@
 #include "AutoThread.h"
 #include "AutoVariant.h"
 #include "Value.h"
+#include "DynamicArray.h"
+#include "RefcountBase.h"
+
+#include "DuiProxy.h"
+
+#include "InvokeManager.h"
+ 
+#include "ElementProvider.h"
+#include "ElementProviderManager.h"
+#include "SelectionProvider.h"
 
 #include "Primitives.h"
-#include "parser.h"
-#include "element.h"
+#include "XmlParser.h"
+
+//#include "ProviderProxy.h"
+
+#include "Element.h"
+
 #include "Browser.h"
 #include "Bind.h"
 #include "AnimationStrip.h"
@@ -153,7 +169,7 @@ namespace DirectUI
 
 	int WINAPI CreateDUIWrapper(Element*,class XProvider**);
 	int WINAPI CreateDUIWrapperEx(Element*, class IXProviderCP*, class XProvider**);
-	int WINAPI CreateDUIWrapperFromResource(HINSTANCE,UCString, UCString, UCString, class XResourceProvider**);
+	int WINAPI CreateDUIWrapperFromResource(HINSTANCE,const WCHAR*, const WCHAR*, const WCHAR*, class XResourceProvider**);
 
 	int WINAPI GetScreenDPI();
 
@@ -171,17 +187,17 @@ namespace DirectUI
 	int WINAPI StopMessagePump();
 
 
-	ATOM WINAPI StrToID(UCString resId);
+	ATOM WINAPI StrToID(const WCHAR* resId);
 
 
-	int WINAPI UnicodeToMultiByte(UCString lpWideCharStr, int cchWideChar, int unk);
+	int WINAPI UnicodeToMultiByte(const WCHAR* lpWideCharStr, int cchWideChar, int unk);
 	int WINAPI MultiByteToUnicode(LPCSTR lpMultiByteStr, int cbMultiByte, int unk);
 
 	BOOL WINAPI IsAnimationsEnabled();
 	int WINAPI IsPalette(HWND hWnd);
 	BOOL WINAPI IsUIAutomationProviderEnabled();
 
-	int WINAPI DUIDrawShadowText(HDC hdcDest, UCString lpchText, int cchText, LPRECT hdcSrc, UINT format, COLORREF dwTextColor);
+	int WINAPI DUIDrawShadowText(HDC hdcDest, const WCHAR* lpchText, int cchText, LPRECT hdcSrc, UINT format, COLORREF dwTextColor);
 
 	int WINAPI BlurBitmap(void*, void*, void*, void*, void*);
 

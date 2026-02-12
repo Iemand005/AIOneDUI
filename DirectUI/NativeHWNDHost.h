@@ -14,8 +14,8 @@ namespace DirectUI
 		NativeHWNDHost& operator=(const NativeHWNDHost&);
 		static UINT WINAPI AsyncDestroyMsg();
 
-		static HRESULT WINAPI Create(UCString lpClassName, UCString lpWindowName, HWND hWndParent, HICON hIcon, int x, int y, int nWidth, int nHeight, int dwExStyle, int dwStyle, HINSTANCE, UINT, NativeHWNDHost**out);
-		static HRESULT WINAPI Create(UCString lpWindowName, HWND hWndParent, HICON hIcon, int x, int y, int nWidth, int nHeight, int dwExStyle, int dwStyle, unsigned int, NativeHWNDHost**out);
+		static HRESULT WINAPI Create(const WCHAR* lpClassName, const WCHAR* lpWindowName, HWND hWndParent, HICON hIcon, int x, int y, int nWidth, int nHeight, int dwExStyle, int dwStyle, HINSTANCE, UINT, NativeHWNDHost**out);
+		static HRESULT WINAPI Create(const WCHAR* lpWindowName, HWND hWndParent, HICON hIcon, int x, int y, int nWidth, int nHeight, int dwExStyle, int dwStyle, unsigned int, NativeHWNDHost**out);
 
 		void Destroy();
 		void DestroyWindow();
@@ -26,14 +26,14 @@ namespace DirectUI
 		void HideWindow();
 		void Host(class Element*);
 
-		HRESULT Initialize(UCString lpClassName, UCString lpWindowName, HWND hWndParent, HICON hIcon, int x, int y, int nWidth, int nHeight, int dwExStyle, int dwStyle, HINSTANCE, UINT);
-		HRESULT Initialize(UCString, HWND, HICON, int, int, int, int, int, int, UINT);
+		HRESULT Initialize(const WCHAR* lpClassName, const WCHAR* lpWindowName, HWND hWndParent, HICON hIcon, int x, int y, int nWidth, int nHeight, int dwExStyle, int dwStyle, HINSTANCE, UINT);
+		HRESULT Initialize(const WCHAR*, HWND, HICON, int, int, int, int, int, int, UINT);
 
 		virtual HRESULT OnMessage(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT*);
 
 		int RestoreFocus();
 		void SaveFocus();
-		void SetDefaultFocusID(UCString);
+		void SetDefaultFocusID(const WCHAR*);
 		void ShowWindow(int);
 
 	private:
