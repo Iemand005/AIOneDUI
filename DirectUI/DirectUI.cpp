@@ -259,7 +259,7 @@ namespace DirectUI
 	void Element::_PostEvent(Event* pEvent, int nMsg) STUB_VOID;
 	bool Element::s_HandleDUIEventMessage(Element* pe, EventMsg* pEventMsg) STUB_ZERO;
 	UINT Element::GetCommonDrawTextFlags(int dCAlign) STUB_ZERO;
-	WCHAR* Element::RemoveShortcutFromName(const WCHAR* pszName) STUB_ZERO;
+	WCHAR* Element::RemoveShortcutFromName(const WCHAR*Name) STUB_ZERO;
 	void Element::_SyncVisible() STUB_VOID;
 	void Element::_SyncBackground() STUB_VOID;
 	void Element::_SyncRedrawStyle() STUB_VOID;
@@ -269,7 +269,7 @@ namespace DirectUI
 	bool Element::TrySparsePattern(POINT* pt, const RECT& rcParent) STUB_ZERO;
 	HRESULT Element::_SetRelPixValue(const PropertyInfo* ppi, int nValue) STUB_ZERO;
 	HRESULT Element::_SetRelPixRect(const PropertyInfo* ppi, int l, int t, int r, int b) STUB_ZERO;
-	HRESULT Element::GetTheme(const WCHAR* pszClass, HTHEME* phTheme) STUB_ZERO;
+	HRESULT Element::GetTheme(const WCHAR*Class, HTHEME* phTheme) STUB_ZERO;
 	void Element::_FlushLayout(Element* pe, DeferCycle* pdc) STUB_VOID;
 	void Element::_InvalidateCachedDSConstraints(Element* pe) STUB_VOID;
 	void Element::_SelfLayoutDoLayout(int cx, int cy) STUB_VOID;
@@ -491,7 +491,7 @@ namespace DirectUI
 	HRESULT Element::SetForegroundColor(COLORREF cr0, COLORREF cr1, COLORREF cr2, BYTE dType) STUB_ZERO;
 	HRESULT Element::SetBackgroundStdColor(int v) STUB_ZERO;
 	HRESULT Element::SetBackgroundColor(const Fill& fill) STUB_ZERO;
-	HRESULT Element::SetBackgroundColor(const WCHAR* pszClassName, int iPartId, int iStateId) STUB_ZERO;
+	HRESULT Element::SetBackgroundColor(const WCHAR*ClassName, int iPartId, int iStateId) STUB_ZERO;
 	HRESULT Element::SetBackgroundColor(COLORREF cr) STUB_ZERO;
 	HRESULT Element::SetBackgroundColor(COLORREF cr0, COLORREF cr1, BYTE dType) STUB_ZERO;
 	HRESULT Element::SetBackgroundColor(COLORREF cr0, COLORREF cr1, COLORREF cr2, BYTE dType) STUB_ZERO;
@@ -600,7 +600,7 @@ namespace DirectUI
 	long DUIXmlParser::_InitializeTables() { return 0 ; }
 	long DUIXmlParser::_EnterOnCurrentThread() { return 0 ; }
 	LINEINFO DUIXmlParser::_GetLineInfo(IXmlReader*) { return LINEINFO() ; }
-	long DUIXmlParser::AddRulesToStyleSheet(IXmlReader*, StyleSheet*, const WCHAR*, DynamicArray<XMLParserCond, 0>*, DynamicArray<UString, 0>*) { return 0 ; }
+	long DUIXmlParser::AddRulesToStyleSheet(IXmlReader*, StyleSheet*, const WCHAR*, DynamicArray<XMLParserCond, 0>*, DynamicArray<WCHAR*, 0>*) { return 0 ; }
 	long DUIXmlParser::CreateLayout(const ParserTools::ExprNode*, long(WINAPI*)(int, int*, Value**)){ return 0 ; }
 	long DUIXmlParser::CreateStyleSheet(IXmlReader*, const WCHAR*, StyleSheet**) { return 0 ; }
 	long DUIXmlParser::CreateXmlReader(IXmlReader**) { return 0 ; }
@@ -661,7 +661,7 @@ namespace DirectUI
 	long DUIXmlParser::ParseSysMetricStr(const ParserTools::ExprNode*, Value**) { return 0 ; }
 	long DUIXmlParser::ParseTheme(const ParserTools::ExprNode*, void**) { return 0 ; }
 	int WINAPI DUIXmlParser::QuerySysMetric(int) { return 0 ; }
-	const WCHAR* WINAPI DUIXmlParser::QuerySysMetricStr(int, UString, unsigned int) { return UString() ; }
+	const WCHAR* WINAPI DUIXmlParser::QuerySysMetricStr(int, WCHAR*, unsigned int) { return WCHAR*() ; }
 	void DUIXmlParser::ReturnValueParser(ParserTools::ValueParser*) {}
 	void DUIXmlParser::SendParseError(const WCHAR*, const WCHAR*, int, int, long) {}
 	void DUIXmlParser::SendParseError(const WCHAR*, const WCHAR*, IXmlReader*, long) {}
@@ -669,8 +669,8 @@ namespace DirectUI
 	long DUIXmlParser::_RecordElementLayout(IXmlReader*, const WCHAR*) { return 0 ; }
 	long DUIXmlParser::_RecordElementStyleSheet(const WCHAR*, bool) { return 0 ; }
 	long DUIXmlParser::_RecordElementTrees(IXmlReader*) { return 0 ; }
-	long DUIXmlParser::_RecordElementWithChildren(IXmlReader*, bool, UString*) { return 0 ; }
-	long DUIXmlParser::_RecordInstantiateElement(IXmlReader*, UString*) { return 0 ; }
+	long DUIXmlParser::_RecordElementWithChildren(IXmlReader*, bool, WCHAR**) { return 0 ; }
+	long DUIXmlParser::_RecordInstantiateElement(IXmlReader*, WCHAR**) { return 0 ; }
 	long DUIXmlParser::_RecordSetElementProperties(IXmlReader*) { return 0 ; }
 	long DUIXmlParser::_RecordSetValue(IXmlReader*, const WCHAR*, const WCHAR*) { return 0 ; }
 	void DUIXmlParser::SetParseState(_DUI_PARSE_STATE) {}
@@ -1826,7 +1826,7 @@ namespace DirectUI
 	HWND HWNDHost::GetHWND() { return HWND() ; }
 	bool HWNDHost::OnMessage(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT *) { return false ; }
 	bool HWNDHost::OnNotify(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT *) { return false ; }
-	bool HWNDHost::OnSysChar(UChar) { return false ; }
+	bool HWNDHost::OnSysChar(WCHAR) { return false ; }
 	bool HWNDHost::OnSinkThemeChanged(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT *) { return false ; }
 	bool HWNDHost::OnCtrlThemeChanged(UINT, WPARAM wParam, LPARAM lParam, LRESULT *) { return false ; }
 	void HWNDHost::OnWindowStyleChanged(WPARAM, const STYLESTRUCT *) {}
@@ -1962,7 +1962,7 @@ namespace DirectUI
 	template<typename T>
 	SafeArrayAccessor<T>::operator T*(){}
 	template<typename T>
-	long SafeArrayAccessor<T>::Access(SAFEARRAY *, UChar) { return 0 ; }
+	long SafeArrayAccessor<T>::Access(SAFEARRAY *, WCHAR) { return 0 ; }
 	template<typename T>
 	int SafeArrayAccessor<T>::Count() { return 0 ; }
 	CritSecLock::CritSecLock(CRITICAL_SECTION *) {}
@@ -2914,10 +2914,10 @@ namespace DirectUI
 	Value * WINAPI Value::GetUnset() { return nullptr ; }
 	bool Value::IsEqual(Value *) { return false ; }
 	void Value::Release() {}
-	UString Value::ToString(UString, unsigned int) const
-	{ return UString() ; }
+	WCHAR* Value::ToString(WCHAR*, unsigned int) const
+	{ return WCHAR*() ; }
 	void Value::_ZeroRelease() {}
-	long WINAPI Value::StrDupW(const WCHAR*, UString *) { return 0 ; }
+	long WINAPI Value::StrDupW(const WCHAR*, WCHAR* *) { return 0 ; }
 	ValueProvider::ValueProvider() {}
 	ValueProvider::~ValueProvider(void) {}
 	unsigned long ValueProvider::AddRef(void) { return 0 ; }
@@ -3317,7 +3317,7 @@ namespace DirectUI
 	UID TouchEdit2::ContextMenuRequested() STUB_ZERO;
 	const PropertyInfo* TouchEdit2::PromptTextProp() STUB_ZERO;
 	const WCHAR* TouchEdit2::GetPromptText(Value** ppv) STUB_ZERO;
-	HRESULT TouchEdit2::SetPromptText(const WCHAR* psz) STUB_ZERO;
+	HRESULT TouchEdit2::SetPromptText(const WCHAR*) STUB_ZERO;
 	const PropertyInfo* TouchEdit2::PromptWithCaretProp() STUB_ZERO;
 	bool TouchEdit2::GetPromptWithCaret() STUB_ZERO;
 	HRESULT TouchEdit2::SetPromptWithCaret(bool v) STUB_ZERO;
@@ -3354,7 +3354,7 @@ namespace DirectUI
 	HRESULT TouchEdit2::FinalizeCurrentIMEComposition() STUB_ZERO;
 	HRESULT TouchEdit2::GetTextHost(ITextHost** ppth) STUB_ZERO;
 	HRESULT TouchEdit2::GetTextSelection(ITextSelection** pptsel) STUB_ZERO;
-	HRESULT TouchEdit2::PasteText(const WCHAR* pszText) STUB_ZERO;
+	HRESULT TouchEdit2::PasteText(const WCHAR*Text) STUB_ZERO;
 	HRESULT TouchEdit2::GetSelection(long* piStart, long* pcchSel) STUB_ZERO;
 	HRESULT TouchEdit2::SetSelection(long iStart, long cch) STUB_ZERO;
 	HRESULT TouchEdit2::SetCaretPosition(long iPos) STUB_ZERO;
@@ -3378,13 +3378,13 @@ namespace DirectUI
 	void TouchSwitch::SetToggleSwitchText(const WCHAR* TitleText) STUB_VOID;
 	const PropertyInfo* TouchSwitch::OnTextProp() STUB_ZERO;
 	const WCHAR* TouchSwitch::GetOnText(Value** ppv) STUB_ZERO;
-	HRESULT TouchSwitch::SetOnText(const WCHAR* psz) STUB_ZERO;
+	HRESULT TouchSwitch::SetOnText(const WCHAR*) STUB_ZERO;
 	const PropertyInfo* TouchSwitch::OffTextProp() STUB_ZERO;
 	const WCHAR* TouchSwitch::GetOffText(Value** ppv) STUB_ZERO;
-	HRESULT TouchSwitch::SetOffText(const WCHAR* psz) STUB_ZERO;
+	HRESULT TouchSwitch::SetOffText(const WCHAR*) STUB_ZERO;
 	const PropertyInfo* TouchSwitch::TitleTextProp() STUB_ZERO;
 	const WCHAR* TouchSwitch::GetTitleText(Value** ppv) STUB_ZERO;
-	HRESULT TouchSwitch::SetTitleText(const WCHAR* psz) STUB_ZERO;
+	HRESULT TouchSwitch::SetTitleText(const WCHAR*) STUB_ZERO;
 	void TouchSwitch::SetToggleValue(int ToggleValue) STUB_VOID;
 	void TouchSwitch::SetToggleValue(int ToggleValue, bool RaiseEvent) STUB_VOID;
 	void TouchSwitch::SetToggleValue(int ToggleValue, bool fRaiseEvent, bool fForce) STUB_VOID;

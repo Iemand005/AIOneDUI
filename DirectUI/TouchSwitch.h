@@ -52,15 +52,15 @@ namespace DirectUI
 
         UILIB_API static const PropertyInfo* WINAPI OnTextProp();
         UILIB_API const WCHAR* GetOnText(Value** ppv);
-        UILIB_API HRESULT SetOnText(const WCHAR* psz);
+        UILIB_API HRESULT SetOnText(const WCHAR*);
 
         UILIB_API static const PropertyInfo* WINAPI OffTextProp();
         UILIB_API const WCHAR* GetOffText(Value** ppv);
-        UILIB_API HRESULT SetOffText(const WCHAR* psz);
+        UILIB_API HRESULT SetOffText(const WCHAR*);
 
         UILIB_API static const PropertyInfo* WINAPI TitleTextProp();
         UILIB_API const WCHAR* GetTitleText(Value** ppv);
-        UILIB_API HRESULT SetTitleText(const WCHAR* psz);
+        UILIB_API HRESULT SetTitleText(const WCHAR*);
 
         static const PropertyInfo* WINAPI CurrentToggleValueProp();
         int GetCurrentToggleValue();
@@ -77,7 +77,7 @@ namespace DirectUI
         void OnPropertyChanged(const PropertyInfo* ppi, int iIndex, Value* pvOld, Value* pvNew) override;
 
     private:
-        void SetElementCustomString(Element* pElement, const WCHAR* pszValue);
+        void SetElementCustomString(Element* pElement, const WCHAR*Value);
         void SyncOnOffText();
         void _SetToggleValue(int ToggleValue);
 

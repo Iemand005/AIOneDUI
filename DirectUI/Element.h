@@ -222,7 +222,7 @@ namespace DirectUI
 		void _PostEvent(Event* pEvent, int nMsg); // TODO Check when was this added
 		static bool CALLBACK s_HandleDUIEventMessage(Element* pe, EventMsg* pEventMsg); // TODO Check when was this added
 		UINT GetCommonDrawTextFlags(int dCAlign);
-		WCHAR* RemoveShortcutFromName(const WCHAR* pszName);
+		WCHAR* RemoveShortcutFromName(const WCHAR*Name);
 		void _SyncVisible();
 		void _SyncBackground();
 		void _SyncRedrawStyle();
@@ -232,7 +232,7 @@ namespace DirectUI
 		bool TrySparsePattern(POINT* pt, const RECT& rcParent);
 		HRESULT _SetRelPixValue(const PropertyInfo* ppi, int nValue); // TODO Check when was this added
 		HRESULT _SetRelPixRect(const PropertyInfo* ppi, int l, int t, int r, int b); // TODO Check when was this added
-		HRESULT GetTheme(const WCHAR* pszClass, HTHEME* phTheme); // TODO Check when was this added
+		HRESULT GetTheme(const WCHAR*Class, HTHEME* phTheme); // TODO Check when was this added
 
 	protected:
 		static void _FlushLayout(Element* pe, DeferCycle* pdc);
@@ -540,7 +540,7 @@ namespace DirectUI
 		HRESULT SetForegroundColor(COLORREF cr0, COLORREF cr1, COLORREF cr2, BYTE dType);
 		HRESULT SetBackgroundStdColor(int v);
 		HRESULT SetBackgroundColor(const Fill& fill);
-		HRESULT SetBackgroundColor(const WCHAR* pszClassName, int iPartId, int iStateId);
+		HRESULT SetBackgroundColor(const WCHAR*ClassName, int iPartId, int iStateId);
 		HRESULT SetBackgroundColor(COLORREF cr);
 		HRESULT SetBackgroundColor(COLORREF cr0, COLORREF cr1, BYTE dType);
 		HRESULT SetBackgroundColor(COLORREF cr0, COLORREF cr1, COLORREF cr2, BYTE dType);

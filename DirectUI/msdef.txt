@@ -2593,7 +2593,8 @@ public: __thiscall DirectUI::DCSurface::DCSurface(class DirectUI::DCSurface cons
 public: __thiscall DirectUI::DCSurface::DCSurface(struct HDC__ *)
 public: virtual __thiscall DirectUI::DCSurface::~DCSurface(void)
 const DirectUI::DCSurface::`vftable'
-public: void __thiscall DirectUI::CritSecLock::Unlock(void)
+public: void __thiscall DirectUI::
+::Unlock(void)
 public: class DirectUI::CritSecLock & __thiscall DirectUI::CritSecLock::operator=(class DirectUI::CritSecLock const &)
 public: __thiscall DirectUI::CritSecLock::CritSecLock(struct _RTL_CRITICAL_SECTION *)
 public: __thiscall DirectUI::CritSecLock::~CritSecLock(void)

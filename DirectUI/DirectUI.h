@@ -21,26 +21,37 @@
 #include <DUser.h>
 
 #include "Types.h"
-#include "misc.h"
+#include "Primitives.h"
+//#include "misc.h"
+#include "Misc.h"
+#include "Event.h"
+#include "Surface.h"
+#include "UiaSchema.h"
 #include "Interfaces.h"
 
+#include "PatternProvider.h"
+#include "RefcountBase.h"
+
+#include "Expression.h"
 #include "AutoLock.h"
 #include "AutoThread.h"
 #include "AutoVariant.h"
-#include "Value.h"
 #include "DynamicArray.h"
-#include "RefcountBase.h"
+
+#include "TableLayout.h"
 
 #include "DuiProxy.h"
+#include "Sheet.h"
+#include "Value.h"
+#include "XmlParser.h"
 
-#include "InvokeManager.h"
+//#include "InvokeManager.h"
  
 #include "ElementProvider.h"
 #include "ElementProviderManager.h"
 #include "SelectionProvider.h"
 
-#include "Primitives.h"
-#include "XmlParser.h"
+
 
 //#include "ProviderProxy.h"
 
@@ -54,7 +65,7 @@
 #include "AccessibleButton.h"
 #include "AutoButton.h"
 #include "PushButton.h"
-#include "event.h"
+#include "Event.h"
 #include "layout.h"
 #include "BorderLayout.h"
 #include "host.h"
@@ -97,8 +108,9 @@
 #include "ExpandoButtonGlyph.h"
 #include "FontCache.h"
 #include "FontCheckOut.h"
-#include "GridItem.h"
-#include "Grid.h"
+#include "GridItemProvider.h"
+#include "GridProvider.h"
+//#include "ElementWithHWND.h"
 #include "HWNDElement.h"
 #include "InvokeHelper.h"
 #include "LinkedList.h"
@@ -141,6 +153,7 @@
 
 #include "RichText.h"
 
+#include "TouchSlider.h"
 #include "TouchButton.h"
 #include "TouchSwitch.h"
 //#include "TouchSlider.h"

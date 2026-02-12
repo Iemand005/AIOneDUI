@@ -13,7 +13,7 @@ namespace DirectUI
 
 		UILIB_API static const PropertyInfo* WINAPI PromptTextProp();
 		UILIB_API const WCHAR* GetPromptText(Value** ppv);
-		UILIB_API HRESULT SetPromptText(const WCHAR* psz);
+		UILIB_API HRESULT SetPromptText(const WCHAR*);
 
 		UILIB_API static const PropertyInfo* WINAPI PromptWithCaretProp();
 		UILIB_API bool GetPromptWithCaret();
@@ -72,7 +72,7 @@ namespace DirectUI
 		UILIB_API HRESULT GetTextHost(ITextHost** ppth);
 
 		UILIB_API HRESULT GetTextSelection(ITextSelection** pptsel);
-		UILIB_API HRESULT PasteText(const WCHAR* pszText);
+		UILIB_API HRESULT PasteText(const WCHAR*Text);
 
 		UILIB_API HRESULT GetSelection(long* piStart, long* pcchSel);
 		UILIB_API HRESULT SetSelection(long iStart, long cch);

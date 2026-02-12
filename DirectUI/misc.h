@@ -1,161 +1,123 @@
 #pragma once
 
-namespace DirectUI {
-// exported for int
-template <typename T> class UILIB_API SafeArrayAccessor {
-public:
-  SafeArrayAccessor();
-  ~SafeArrayAccessor();
-  SafeArrayAccessor(const SafeArrayAccessor &) = delete;
-  SafeArrayAccessor &operator=(const SafeArrayAccessor &) = delete;
-
-  operator T *();
-  long Access(SAFEARRAY *, UChar);
-  int Count();
-
-private:
-  void *unk1;
-  void *unk2;
-  void *unk3;
-};
-
-class UILIB_API CritSecLock {
-public:
-  CritSecLock(CRITICAL_SECTION *);
-  ~CritSecLock();
-  CritSecLock &operator=(CritSecLock const &);
-  void Unlock();
-};
-
-template <class T, int> class DynamicArray;
-
-class UILIB_API Expression {
-public:
-  Expression() = delete;
-  Expression(const Expression &) = delete;
-  ~Expression() = delete;
-
-  Expression &operator=(Expression const &);
-  void Destroy(void);
-};
-
-/*class UID
+namespace DirectUI
 {
-public:
-};*/
+	enum DUSER_MSG_FLAG : UINT32
+	{
+		GMF_DIRECT = 0x00000000, // OnMessage
+		GMF_ROUTED = 0x00000001, // PreviewMessage
+		GMF_BUBBLED = 0x00000002, // PostMessage
+		GMF_EVENT = 0x00000003, // Message -> Event
+		GMF_DESTINATION = 0x00000003, // Message reach dest (same as event)
+	};
 
-class UILIB_API Surface {
-public:
-  enum EType {
+	enum DUSER_INPUT_DEVICE : UINT32
+	{
+		GINPUT_MOUSE = 0,
+		GINPUT_KEYBOARD = 1,
+		GINPUT_JOYSTICK = 2,
+	};
 
-  };
+	enum DUSER_INPUT_CODE : UINT32
+	{
+		GMOUSE_MOVE = 0,
+		GMOUSE_DOWN = 1,
+		GMOUSE_UP = 2,
+		GMOUSE_DRAG = 3,
+		GMOUSE_HOVER = 4,
+		GMOUSE_WHEEL = 5,
+		GMOUSE_MAX = 5,
 
-  Surface(Surface const &);
-  Surface(void);
-  virtual ~Surface(void);
-  Surface &operator=(Surface const &);
+		GBUTTON_NONE = 0,
+		GBUTTON_LEFT = 1,
+		GBUTTON_RIGHT = 2,
+		GBUTTON_MIDDLE = 3,
+		GBUTTON_MAX = 3,
+	};
 
-  static enum EType __stdcall GetSurfaceType(unsigned int);
-  static unsigned int __stdcall GetSurfaceType(enum EType);
+	// bitflags
+	enum DUSER_INPUT_MODIFIERS : UINT32
+	{
+		GMODIFIER_NONE = 0x00000000,
 
-  virtual void T1() = 0;
-};
+		GMODIFIER_LCONTROL = 0x00000001,
+		GMODIFIER_RCONTROL = 0x00000002,
+		GMODIFIER_LSHIFT = 0x00000004,
+		GMODIFIER_RSHIFT = 0x00000008,
+		GMODIFIER_LALT = 0x00000010,
+		GMODIFIER_RALT = 0x00000020,
+		GMODIFIER_LBUTTON = 0x00000040,
+		GMODIFIER_RBUTTON = 0x00000080,
+		GMODIFIER_MBUTTON = 0x00000100,
 
-class UILIB_API DCSurface {
-public:
-  DCSurface(DCSurface const &);
-  DCSurface(HDC);
-  virtual ~DCSurface(void);
-  DCSurface &operator=(DCSurface const &);
+		GMODIFIER_CONTROL = (GMODIFIER_LCONTROL | GMODIFIER_RCONTROL),
+		GMODIFIER_SHIFT = (GMODIFIER_LSHIFT | GMODIFIER_RSHIFT),
+		GMODIFIER_ALT = (GMODIFIER_LALT | GMODIFIER_RALT),
+	};
 
-  HDC GetHDC(void);
-  virtual Surface::EType GetType(void) const;
-};
+	enum TOUCHTOOLTIP_CREATE_FLAGS
+	{
+		TTTCF_DEFAULT = 0x0,
+		TTTCF_DESKTOP_DPI = 0x1,
+		TTTCF_CONSTRAIN_TO_WORKSPACE = 0x2,
+		TTTCF_CONSTRAIN_TO_MONITOR = 0x4,
+	};
 
-enum DUSER_MSG_FLAG : UINT32 {
-  GMF_DIRECT = 0x00000000,      // OnMessage
-  GMF_ROUTED = 0x00000001,      // PreviewMessage
-  GMF_BUBBLED = 0x00000002,     // PostMessage
-  GMF_EVENT = 0x00000003,       // Message -> Event
-  GMF_DESTINATION = 0x00000003, // Message reach dest (same as event)
-};
+	enum TOUCHTOOLTIP_OPTION_FLAGS
+	{
+		TTTOF_DEFAULT = 0x0,
+		TTTOF_LAST_LINE_SUBTITLE = 0x1,
+		TTTOF_SLIDER = 0x2,
+		TTTOF_NO_WRAP = 0x4,
+		TTTOF_NO_UIA_OPENED_EVENT = 0x8,
+		TTTOF_SCALE_WITH_OWNER = 0x10,
+	};
 
-enum DUSER_INPUT_DEVICE : UINT32 {
-  GINPUT_MOUSE = 0,
-  GINPUT_KEYBOARD = 1,
-  GINPUT_JOYSTICK = 2,
-};
+	enum TOUCHTOOLTIP_INPUT
+	{
+		TTTI_PROGRAMMATIC = 0,
+		TTTI_KEYBOARD = 1,
+		TTTI_MOUSE = 2,
+		TTTI_POINTER = 3,
+		TTTI_COUNT = 4,
+	};
 
-enum DUSER_INPUT_CODE : UINT32 {
-  GMOUSE_MOVE = 0,
-  GMOUSE_DOWN = 1,
-  GMOUSE_UP = 2,
-  GMOUSE_DRAG = 3,
-  GMOUSE_HOVER = 4,
-  GMOUSE_WHEEL = 5,
-  GMOUSE_MAX = 5,
+	enum TOUCHTOOLTIP_PLACEMENT
+	{
+		TTTP_ABOVE = 0,
+		TTTP_BELOW = 1,
+		TTTP_LEFT = 2,
+		TTTP_RIGHT = 3,
+		TTTP_COUNT = 4,
+	};
 
-  GBUTTON_NONE = 0,
-  GBUTTON_LEFT = 1,
-  GBUTTON_RIGHT = 2,
-  GBUTTON_MIDDLE = 3,
-  GBUTTON_MAX = 3,
-};
+	enum TOUCHTOOLTIP_TYPE
+	{
+		TTTT_TEXT = 0,
+		TTTT_RICH = 1,
+		TTTT_COUNT = 2,
+	};
 
-// bitflags
-enum DUSER_INPUT_MODIFIERS : UINT32 {
-  GMODIFIER_NONE = 0x00000000,
+	enum TOUCHTOOLTIP_DELAY
+	{
+		TTTD_NORMAL = 0,
+		TTTD_RESHOW = 1,
+		TTTD_COUNT = 2,
+	};
 
-  GMODIFIER_LCONTROL = 0x00000001,
-  GMODIFIER_RCONTROL = 0x00000002,
-  GMODIFIER_LSHIFT = 0x00000004,
-  GMODIFIER_RSHIFT = 0x00000008,
-  GMODIFIER_LALT = 0x00000010,
-  GMODIFIER_RALT = 0x00000020,
-  GMODIFIER_LBUTTON = 0x00000040,
-  GMODIFIER_RBUTTON = 0x00000080,
-  GMODIFIER_MBUTTON = 0x00000100,
+	enum TOUCHTOOLTIP_LAYOUT_DIRECTION
+	{
+		TTTLD_INHERIT = 0,
+		TTTLD_LTR = 1,
+		TTTLD_RTL = 2,
+		TTTLD_COUNT = 3,
+	};
 
-  GMODIFIER_CONTROL = (GMODIFIER_LCONTROL | GMODIFIER_RCONTROL),
-  GMODIFIER_SHIFT = (GMODIFIER_LSHIFT | GMODIFIER_RSHIFT),
-  GMODIFIER_ALT = (GMODIFIER_LALT | GMODIFIER_RALT),
-};
-
-struct Event {
-  Element *target;
-  UID type;
-  bool handled;
-  DUSER_MSG_FLAG flag;
-};
-
-struct InputEvent {
-  Element *target;
-  bool handled;
-  DUSER_MSG_FLAG flag;
-  DUSER_INPUT_DEVICE device;
-  DUSER_INPUT_CODE code;
-  DUSER_INPUT_MODIFIERS modifiers;
-};
-
-struct RectangleChange {};
-
-struct ElementRuntimeId {};
-
-class UILIB_API ResourceModuleHandles {
-public:
-  ResourceModuleHandles(void);
-  ~ResourceModuleHandles(void);
-  ResourceModuleHandles &operator=(ResourceModuleHandles const &);
-  long GetHandle(unsigned short const *, HINSTANCE *);
-
-private:
-  static long volatile g_cRefCount;
-};
-
-template <class T> class UiaArray {
-public:
-};
-
-class DeferCycle {};
-
+	enum ActiveState
+	{
+		AS_HIDDEN = 0,
+		AS_REST = 1,
+		AS_MOUSE = 2,
+		AS_PAN = 3,
+	};
 } // namespace DirectUI

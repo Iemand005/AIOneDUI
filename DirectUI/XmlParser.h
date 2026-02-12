@@ -6,7 +6,7 @@ namespace DirectUI
 	class DUIParsePlayer;
 	class DUIParseRecorder;
 
-	typedef HRESULT (CALLBACK *PLAYTCREATE)(int, int*, Value** ppVal);
+	typedef HRESULT(CALLBACK* PLAYTCREATE)(int, int*, Value** ppVal);
 
 	enum DynamicScaleParsing
 	{
@@ -68,7 +68,7 @@ namespace DirectUI
 		struct ExprNode
 		{
 			ExprNodeType ent;
-			WCHAR* pszName;
+			WCHAR*Name;
 			UINT cArgs;
 			ExprNode* pArgs;
 			UINT uiArgs;
@@ -107,7 +107,7 @@ namespace DirectUI
 			~ValueParser();
 			static HRESULT WINAPI Create(ValueParser** ppvp);
 			void Destroy();
-			HRESULT Parse(const WCHAR* pszValue, const ExprNode** ppenRoot);
+			HRESULT Parse(const WCHAR*Value, const ExprNode** ppenRoot);
 
 		private:
 			HRESULT Initialize();
@@ -128,7 +128,7 @@ namespace DirectUI
 
 		struct ClassicValue
 		{
-			const WCHAR* pszClass;
+			const WCHAR*Class;
 			int iPart;
 			int iState;
 			int iProp;
@@ -138,7 +138,7 @@ namespace DirectUI
 	}
 
 	typedef Value* (CALLBACK* PXMLGETSHEETCB)(const WCHAR*, void* pContext);
-	typedef void (CALLBACK* PXMLPARSEERRORCB)(const WCHAR* pszError, const WCHAR* pszToken, int dLine, void* pContext);
+	typedef void (CALLBACK* PXMLPARSEERRORCB)(const WCHAR*Error, const WCHAR*Token, int dLine, void* pContext);
 	typedef bool (CALLBACK* PUNKNOWNATTRCB)(const WCHAR*, void* pContext);
 
 	class UILIB_API DUIXmlParser
@@ -158,17 +158,17 @@ namespace DirectUI
 		HRESULT SetXML(const WCHAR* pBuffer, HINSTANCE hResourceInstance, HINSTANCE hControlsInstance);
 		HRESULT SetPreprocessedXML(const WCHAR* pPreProcessed, HINSTANCE hResourceInstance, HINSTANCE hControlsInstance);
 		HRESULT SetXMLFromResourceWithTheme(UINT uRCID, HINSTANCE hResInstance, HINSTANCE hResTheme, HINSTANCE hControlsInstance);
-		HRESULT SetXMLFromResource(const WCHAR* pszResource, const WCHAR* pszResType, HINSTANCE hResourceInstance, HINSTANCE hControlsInstance);
-		HRESULT SetXMLFromResource(const WCHAR* pszResid, HINSTANCE hResInstance, HINSTANCE hControlsInstance);
-		HRESULT SetXMLFromResource(UINT uRCID, const WCHAR* pszResType, HINSTANCE hResInstance, HINSTANCE hControlsInstance);
+		HRESULT SetXMLFromResource(const WCHAR*Resource, const WCHAR*ResType, HINSTANCE hResourceInstance, HINSTANCE hControlsInstance);
+		HRESULT SetXMLFromResource(const WCHAR*Resid, HINSTANCE hResInstance, HINSTANCE hControlsInstance);
+		HRESULT SetXMLFromResource(UINT uRCID, const WCHAR*ResType, HINSTANCE hResInstance, HINSTANCE hControlsInstance);
 		HRESULT SetXMLFromResource(UINT uRCID, HINSTANCE hResInstance, HINSTANCE hControlsInstance);
 
 		void SetRootWindowForTheming(HWND);
 		Value* GetMappedValue(WCHAR*);
 
-		HRESULT CreateElement(const WCHAR* pszResID, Element* pEleSubstitute, Element* pParent, DWORD* pdwDeferCookie, Element** ppElementOut);
+		HRESULT CreateElement(const WCHAR*ResID, Element* pEleSubstitute, Element* pParent, DWORD* pdwDeferCookie, Element** ppElementOut);
 
-		HRESULT GetSheet(const WCHAR* pszResID, Value** ppValueOut);
+		HRESULT GetSheet(const WCHAR*ResID, Value** ppValueOut);
 
 		void SetParseErrorCallback(PXMLPARSEERRORCB pfnErrorCallback, void* pContext);
 		void SetGetSheetCallback(PXMLGETSHEETCB pfnGetSheetCallback, void* pContext);
@@ -179,8 +179,8 @@ namespace DirectUI
 		void SetUnknownAttrCallback(PUNKNOWNATTRCB pfnUnknownAttrCallback, void* pContext);
 		HINSTANCE GetResourceHInstance();
 		HINSTANCE GetHInstance();
-		HRESULT LookupElement(LINEINFO li, const WCHAR* pszElem, HINSTANCE hControlsInstance, IClassInfo** ppciOut);
-		HRESULT LookupElement(IXmlReader* pReader, const WCHAR* pszElem, HINSTANCE hInstance, IClassInfo** ppciOut);
+		HRESULT LookupElement(LINEINFO li, const WCHAR*Elem, HINSTANCE hControlsInstance, IClassInfo** ppciOut);
+		HRESULT LookupElement(IXmlReader* pReader, const WCHAR*Elem, HINSTANCE hInstance, IClassInfo** ppciOut);
 		HRESULT UpdateSheets(Element* pe);
 
 		void SetDefaultHInstance(HINSTANCE hInst);
@@ -205,22 +205,22 @@ namespace DirectUI
 		static HRESULT WINAPI GetXmlLiteDll(HMODULE* phXmlLiteDll);
 		HRESULT CreateXmlReader(IXmlReader** ppReader);
 		HRESULT CreateXmlReaderFromHGLOBAL(HGLOBAL hglob, IXmlReader** ppReader);
-		HRESULT CreateXmlReaderInputWithEncodingName(IStream* pInput, const WCHAR* pszEncodingName, IUnknown** ppReaderInput);
+		HRESULT CreateXmlReaderInputWithEncodingName(IStream* pInput, const WCHAR*EncodingName, IUnknown** ppReaderInput);
 
-		HRESULT _SetXMLFromResource(const WCHAR* pszResource, const WCHAR* pszResType, HINSTANCE hResourceInstance, HINSTANCE hControlsInstance, HINSTANCE hResTheme);
+		HRESULT _SetXMLFromResource(const WCHAR*Resource, const WCHAR*ResType, HINSTANCE hResourceInstance, HINSTANCE hControlsInstance, HINSTANCE hResTheme);
 		HRESULT _SetBinaryXml(const BYTE* pBuffer, UINT cbBuffer, HINSTANCE hControlsInstance);
-		HRESULT _BuildFromBinary(Element* peSub, Element* peParent, const WCHAR* pszResource, DWORD* pdwDefer, Element** ppElement);
+		HRESULT _BuildFromBinary(Element* peSub, Element* peParent, const WCHAR*Resource, DWORD* pdwDefer, Element** ppElement);
 		HRESULT _BuildElement(IXmlReader* pReader, Element* peParent, Element** ppElement);
 		HRESULT _BuildChildren(IXmlReader* pReader, Element* peParent);
 		HRESULT _SetProperties(IXmlReader* pReader, IClassInfo* pClassInfo, Element* peTarget);
-		HRESULT _ParseLayout(const WCHAR* pszLayoutString, Value** ppvLayout);
-		HRESULT _ParseBehavior(Element* pTarget, const WCHAR* pszBehavior);
-		HRESULT _CreateValue(const WCHAR* pszValue, const PropertyInfo* pPropInfo, Value** ppValue);
+		HRESULT _ParseLayout(const WCHAR*LayoutString, Value** ppvLayout);
+		HRESULT _ParseBehavior(Element* pTarget, const WCHAR*Behavior);
+		HRESULT _CreateValue(const WCHAR*Value, const PropertyInfo* pPropInfo, Value** ppValue);
 		HRESULT _GetClassForElement(IXmlReader* pReader, IClassInfo** ppClassInfo);
-		HRESULT _GetClassForElementByName(const WCHAR* pszName, IClassInfo** ppClassInfo);
+		HRESULT _GetClassForElementByName(const WCHAR*Name, IClassInfo** ppClassInfo);
 		HRESULT _GetPropertyForAttribute(IXmlReader* pReader, IClassInfo* pClassInfo, const PropertyInfo** ppPropInfo);
 		HRESULT _BuildStyles(IXmlReader* pReader);
-		HRESULT _GetValueForStyleSheet(IClassInfo* pClassInfo, const WCHAR* pszName, const WCHAR* pszValue, const PropertyInfo** ppPropInfo, Value** ppValue);
+		HRESULT _GetValueForStyleSheet(IClassInfo* pClassInfo, const WCHAR*Name, const WCHAR*Value, const PropertyInfo** ppPropInfo, Value** ppValue);
 		LINEINFO _GetLineInfo(IXmlReader* pReader);
 		HRESULT _SetupParserState(HINSTANCE hResourceInstance, HINSTANCE hControlsInstance);
 
@@ -228,33 +228,33 @@ namespace DirectUI
 		HRESULT _RecordElementWithChildren(IXmlReader* pReader, bool fEmptyElem, WCHAR** ppszElemName);
 		HRESULT _RecordInstantiateElement(IXmlReader* pReader, WCHAR** ppszElemName);
 		HRESULT _RecordSetElementProperties(IXmlReader* pReader);
-		HRESULT _RecordElementLayout(IXmlReader* pReader, const WCHAR* pszValue);
-		HRESULT _RecordElementBehaviors(IXmlReader* pReader, const WCHAR* pszValue);
-		HRESULT _RecordSetValue(IXmlReader* pReader, const WCHAR* pszName, const WCHAR* pszValue);
-		HRESULT _RecordElementStyleSheet(const WCHAR* pszSheetName, bool fIgnoreMissingSheet);
+		HRESULT _RecordElementLayout(IXmlReader* pReader, const WCHAR*Value);
+		HRESULT _RecordElementBehaviors(IXmlReader* pReader, const WCHAR*Value);
+		HRESULT _RecordSetValue(IXmlReader* pReader, const WCHAR*Name, const WCHAR*Value);
+		HRESULT _RecordElementStyleSheet(const WCHAR*SheetName, bool fIgnoreMissingSheet);
 
-		HRESULT CreateStyleSheet(IXmlReader* pReader, const WCHAR* pszSheetResid, StyleSheet** ppSheet);
-		HRESULT AddRulesToStyleSheet(IXmlReader* pReader, StyleSheet* pSheet, const WCHAR* pszSheetResid, DynamicArray<XMLParserCond>* pdaXMLConds, DynamicArray<WCHAR*>* pdaCondStrings);
-		HRESULT _ResolveStyleSheet(const WCHAR* pszReference, Value** ppvSheet, UINT* pSheetId);
+		HRESULT CreateStyleSheet(IXmlReader* pReader, const WCHAR*SheetResid, StyleSheet** ppSheet);
+		HRESULT AddRulesToStyleSheet(IXmlReader* pReader, StyleSheet* pSheet, const WCHAR*SheetResid, DynamicArray<XMLParserCond>* pdaXMLConds, DynamicArray<WCHAR*>* pdaCondStrings);
+		HRESULT _ResolveStyleSheet(const WCHAR*Reference, Value** ppvSheet, UINT* pSheetId);
 
 
-		HRESULT MapPropertyNameToPropertyInfo(LINEINFO li, IClassInfo* pci, const WCHAR* pszName, const PropertyInfo** ppInfo);
-		HRESULT GetPropValPairInfo(LINEINFO li, IClassInfo* pci, const WCHAR* pszProperty, const WCHAR* pszValue, const PropertyInfo** ppInfo, Value** ppValue);
-		HRESULT GetPropValPairInfo(IXmlReader* pReader, IClassInfo* pci, const WCHAR* pszProperty, const WCHAR* pszValue, const PropertyInfo** ppInfo, Value** ppValue);
+		HRESULT MapPropertyNameToPropertyInfo(LINEINFO li, IClassInfo* pci, const WCHAR*Name, const PropertyInfo** ppInfo);
+		HRESULT GetPropValPairInfo(LINEINFO li, IClassInfo* pci, const WCHAR*Property, const WCHAR*Value, const PropertyInfo** ppInfo, Value** ppValue);
+		HRESULT GetPropValPairInfo(IXmlReader* pReader, IClassInfo* pci, const WCHAR*Property, const WCHAR*Value, const PropertyInfo** ppInfo, Value** ppValue);
 
-		HRESULT _ParseValue(const PropertyInfo* ppi, WCHAR* pszValue, Value** ppValue);
+		HRESULT _ParseValue(const PropertyInfo* ppi, WCHAR*Value, Value** ppValue);
 
-		void SendParseError(const WCHAR* pszError, const WCHAR* pszToken, int dLine, int dCol, HRESULT hr);
-		void SendParseError(const WCHAR* pszError, const WCHAR* pszToken, IXmlReader* pReader, HRESULT hr);
+		void SendParseError(const WCHAR*Error, const WCHAR*Token, int dLine, int dCol, HRESULT hr);
+		void SendParseError(const WCHAR*Error, const WCHAR*Token, IXmlReader* pReader, HRESULT hr);
 		int QuerySysMetric(int idx, bool* pfDynamicScaling);
-		const WCHAR* QuerySysMetricStr(int idx, WCHAR* pszMetric, UINT c);
+		const WCHAR* QuerySysMetricStr(int idx, WCHAR*Metric, UINT c);
 
 		template <typename T>
 		struct UILIB_API FunctionDefinition
 		{
-			typedef HRESULT (*FUNCPARSER)(const ParserTools::ExprNode* pen, T*, bool*);
+			typedef HRESULT(*FUNCPARSER)(const ParserTools::ExprNode* pen, T*, bool*);
 
-			const WCHAR* pszName;
+			const WCHAR*Name;
 			FUNCPARSER pfnParse;
 		};
 
@@ -284,17 +284,17 @@ namespace DirectUI
 		};
 
 		HRESULT ParseArgs(const ParserTools::ExprNode* pen, ParsedArg* rgpa, UINT cpa, const CHAR* pszSignature);
-		HRESULT ParseFunction(const WCHAR* pszName, const ParserTools::ExprNode* pen, ParsedArg* rgpa, UINT cpa, const CHAR* pszSignature);
+		HRESULT ParseFunction(const WCHAR*Name, const ParserTools::ExprNode* pen, ParsedArg* rgpa, UINT cpa, const CHAR* pszSignature);
 
 		static bool WINAPI IsThemeClassName(const ParserTools::ExprNode* pen);
 
-		HRESULT ParseMagnitude(const WCHAR* pszMag, int* pMagOut, bool* pfDynamicScaling);
-		HRESULT ParseMagnitudeFloat(const WCHAR* pszMag, float* pMagOut, bool* pfDynamicScaling);
+		HRESULT ParseMagnitude(const WCHAR*Mag, int* pMagOut, bool* pfDynamicScaling);
+		HRESULT ParseMagnitudeFloat(const WCHAR*Mag, float* pMagOut, bool* pfDynamicScaling);
 
-		HRESULT ParseLiteralNumber(const WCHAR* psz, int* pnOut, bool* pfDynamicScaling);
+		HRESULT ParseLiteralNumber(const WCHAR*, int* pnOut, bool* pfDynamicScaling);
 		HRESULT ParseColorInt(const WCHAR*, int*); // @Note: Not exported
-		HRESULT ParseLiteralColorInt(const WCHAR* pszValue, int* piOut);
-		HRESULT ParseLiteralColor(const WCHAR* pszValue, COLORREF* pclrOut);
+		HRESULT ParseLiteralColorInt(const WCHAR*Value, int* piOut);
+		HRESULT ParseLiteralColor(const WCHAR*Value, COLORREF* pclrOut);
 
 		HRESULT ParseSysMetricInt(const ParserTools::ExprNode* pen, int* piOut, bool* pfDynamicScaling);
 		HRESULT ParseGTMetInt(const ParserTools::ExprNode* pen, int* piOut, bool* pfDynamicScaling);
@@ -358,7 +358,7 @@ namespace DirectUI
 		HRESULT ParseBehavior(const ParserTools::ExprNode* pen);
 		HRESULT ParseDoubleListValue(const ParserTools::ExprNode* pen, Value** ppVal);
 
-		HRESULT MapPropertyEnumValue(const EnumMap* pMap, const WCHAR* pszValue, int* piVal);
+		HRESULT MapPropertyEnumValue(const EnumMap* pMap, const WCHAR*Value, int* piVal);
 		HRESULT GetValueParser(ParserTools::ValueParser** ppvp);
 		void ReturnValueParser(ParserTools::ValueParser* pvp);
 		HRESULT GetParserCommon(DUIXmlParser** ppParserCommon);
@@ -427,9 +427,9 @@ namespace DirectUI
 
 		UILIB_API HRESULT CreateParser();
 
-		UILIB_API HRESULT LoadFromBuffer(const WCHAR* pszBuf, UINT cchBuf, const WCHAR* pszResid, Element* pParent, DWORD* pdwDeferCookie, Element** ppe);
-		UILIB_API HRESULT LoadFromFile(const WCHAR*, const WCHAR*, Element*, unsigned long*, Element* *);
-		UILIB_API HRESULT LoadFromResource(HINSTANCE, const WCHAR*, const WCHAR*, Element*, unsigned long*, Element* *, const WCHAR*);
+		UILIB_API HRESULT LoadFromBuffer(const WCHAR*Buf, UINT cchBuf, const WCHAR*Resid, Element* pParent, DWORD* pdwDeferCookie, Element** ppe);
+		UILIB_API HRESULT LoadFromFile(const WCHAR*, const WCHAR*, Element*, unsigned long*, Element**);
+		UILIB_API HRESULT LoadFromResource(HINSTANCE, const WCHAR*, const WCHAR*, Element*, unsigned long*, Element**, const WCHAR*);
 
 		UILIB_API void SetError(const WCHAR*, ...);
 
@@ -437,7 +437,7 @@ namespace DirectUI
 		UILIB_API DUIXmlParser* GetParser();
 
 	private:
-		UILIB_API static void WINAPI s_XMLParseError(const WCHAR* pszError, const WCHAR* pszToken, int dLine, DUIFactory* pContext);
+		UILIB_API static void WINAPI s_XMLParseError(const WCHAR*Error, const WCHAR*Token, int dLine, DUIFactory* pContext);
 		UILIB_API void ClearParser();
 
 		int _fError;

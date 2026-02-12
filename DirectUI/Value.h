@@ -100,10 +100,10 @@ namespace DirectUI
 
 		bool IsEqual(Value*);
 		void Release();
-		UString ToString(UString, unsigned int) const;
+		WCHAR* ToString(WCHAR*, unsigned int) const;
 	private:
 		void _ZeroRelease();
-		static long WINAPI StrDupW(const WCHAR*, UString*);
+		static long WINAPI StrDupW(const WCHAR*, WCHAR**);
 	};
 
 	class UILIB_API ValueProvider 

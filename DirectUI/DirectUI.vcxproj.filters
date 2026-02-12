@@ -48,7 +48,7 @@
     <ClInclude Include="host.h">
       <Filter>Headers\DirectUI</Filter>
     </ClInclude>
-    <ClInclude Include="misc.h">
+    <ClInclude Include="Misc.h">
       <Filter>Headers\DirectUI</Filter>
     </ClInclude>
     <ClInclude Include="provider.h">
@@ -101,9 +101,6 @@
     </ClInclude>
     <ClInclude Include="Bind.h">
       <Filter>Headers\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="layout.h">
-      <Filter>Headers\DirectUI\Layout</Filter>
     </ClInclude>
     <ClInclude Include="BorderLayout.h">
       <Filter>Headers\DirectUI\Layout</Filter>
@@ -309,12 +306,6 @@
     <ClInclude Include="ExpandCollapse.h">
       <Filter>Headers\DirectUI</Filter>
     </ClInclude>
-    <ClInclude Include="Grid.h">
-      <Filter>Headers\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="GridItem.h">
-      <Filter>Headers\DirectUI</Filter>
-    </ClInclude>
     <ClInclude Include="RangeValue.h">
       <Filter>Headers\DirectUI</Filter>
     </ClInclude>
@@ -370,6 +361,33 @@
       <Filter>Headers\DirectUI</Filter>
     </ClInclude>
     <ClInclude Include="XmlParser.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Surface.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UiaSchema.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="PatternProvider.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GridProvider.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GridItemProvider.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="TableLayout.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Expression.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Sheet.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Layout.h">
       <Filter>Headers\DirectUI</Filter>
     </ClInclude>
   </ItemGroup>
