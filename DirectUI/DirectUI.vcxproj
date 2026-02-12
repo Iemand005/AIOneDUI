@@ -252,7 +252,12 @@
     <ClInclude Include="Thumb.h" />
     <ClInclude Include="Toggle.h" />
     <ClInclude Include="TouchButton.h" />
+    <ClInclude Include="TouchCheckBox.h" />
+    <ClInclude Include="TouchEdit2.h" />
     <ClInclude Include="TouchHWNDElement.h" />
+    <ClInclude Include="TouchScrollViewer.h" />
+    <ClInclude Include="TouchSlider.h" />
+    <ClInclude Include="TouchSwitch.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="UnknownElement.h" />
     <ClInclude Include="Value.h" />

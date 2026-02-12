@@ -342,6 +342,21 @@
     <ClInclude Include="TouchHWNDElement.h">
       <Filter>Headers\DirectUI</Filter>
     </ClInclude>
+    <ClInclude Include="TouchSwitch.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="TouchSlider.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="TouchScrollViewer.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="TouchCheckBox.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="TouchEdit2.h">
+      <Filter>Headers\DirectUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md">

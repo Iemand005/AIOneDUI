@@ -5,6 +5,8 @@
 #include <initguid.h>
 #include <oleacc.h>
 #include <Commctrl.h>
+#include <combaseapi.h>
+#include <ShlObj.h>
 #include <UIAutomationCore.h>
 #include <UIAutomationCoreApi.h>
 #include <DbgHelp.h>
@@ -122,7 +124,16 @@
 #include "BrowserSelection.h"
 
 #include "RichText.h"
+
 #include "TouchButton.h"
+#include "TouchSwitch.h"
+//#include "TouchSlider.h"
+//#include "TouchScrollViewer.h"
+//#include "TouchCheckBox.h"
+#include "InputScope.h"
+#include "TouchEditBase.h"
+#include "TouchEdit2.h"
+
 
 #include "CClassFactory.h"
 
