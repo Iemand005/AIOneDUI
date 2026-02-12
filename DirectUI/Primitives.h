@@ -1,6 +1,6 @@
 #pragma once
 
-typedef DirectUI::Value* (WINAPI* DefaultValueProcT)();
+typedef DirectUI::Value* (WINAPI *DefaultValueProcT)();
 
 enum DynamicScaleValue
 {
@@ -35,7 +35,7 @@ namespace DirectUI
 		TSM_PRIMARY = 0x3,
 		TSM_DESKTOP_DYNAMIC = 0x4,
 	};
-
+	
 	struct ScaledSIZE : SIZE
 	{
 		DynamicScaleValue dynamicScaleValue;
@@ -84,7 +84,7 @@ namespace DirectUI
 
 			struct
 			{
-				WCHAR*ClassName;
+				WCHAR* pszClassName;
 				int iPartId;
 				int iStateId;
 			} fillDTB;
@@ -134,7 +134,7 @@ namespace DirectUI
 
 	struct EnumMap
 	{
-		const WCHAR*Enum;
+		const WCHAR* pszEnum;
 		int nEnum;
 	};
 
@@ -149,7 +149,7 @@ namespace DirectUI
 
 	struct PropertyInfo
 	{
-		const WCHAR*Name;
+		const WCHAR* pszName;
 		int fFlags;
 		int fGroups;
 		const int* pValidValues;

@@ -131,8 +131,7 @@ DEFINE_ENUM_FLAG_OPERATORS(DuiBehaviorFilters::Flags);
 
 namespace DirectUI
 {
-	struct UILIB_API 
-
+	struct UILIB_API NavReference
 	{
 		void Init(Element* pe, RECT* prc);
 
@@ -190,8 +189,8 @@ DECLARE_INTERFACE_IID_(ITouchTooltipEventSink, IUnknown, "2D97ED04-C05F-4302-946
 MIDL_INTERFACE("13450B2E-1819-49A5-B997-800D02CC0980")
 ITouchTooltip : IUnknown
 {
-	virtual HRESULT STDMETHODCALLTYPE SetText(const WCHAR*Text) = 0;
-	virtual HRESULT STDMETHODCALLTYPE SetTextWithMaxLines(const WCHAR*Text, UINT cLinesMax) = 0;
+	virtual HRESULT STDMETHODCALLTYPE SetText(const WCHAR* pszText) = 0;
+	virtual HRESULT STDMETHODCALLTYPE SetTextWithMaxLines(const WCHAR* pszText, UINT cLinesMax) = 0;
 	virtual HRESULT STDMETHODCALLTYPE SetRichTooltip(DirectUI::Element* pe) = 0;
 	virtual HRESULT STDMETHODCALLTYPE GetOptions(DirectUI::TOUCHTOOLTIP_OPTION_FLAGS* ptouchTooltipOptionFlags) = 0;
 	virtual HRESULT STDMETHODCALLTYPE SetOptions(DirectUI::TOUCHTOOLTIP_OPTION_FLAGS touchTooltipOptionFlags) = 0;
